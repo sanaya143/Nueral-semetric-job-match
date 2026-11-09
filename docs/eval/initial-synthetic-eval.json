@@ -1,0 +1,441 @@
+{
+  "mode": "offline",
+  "cvs": 64,
+  "jds": 7,
+  "ingest_seconds": 2.52,
+  "summary": {
+    "engine": {
+      "ndcg@10": 0.974,
+      "p@5": 0.971,
+      "recall@20": 1.0,
+      "stuffers_top10_total": 1,
+      "transferable_mean_rank": 3.3
+    },
+    "keyword_ats": {
+      "ndcg@10": 0.872,
+      "p@5": 0.857,
+      "recall@20": 0.976,
+      "stuffers_top10_total": 8,
+      "transferable_mean_rank": 8.9
+    },
+    "bm25": {
+      "ndcg@10": 0.84,
+      "p@5": 0.914,
+      "recall@20": 0.988,
+      "stuffers_top10_total": 8,
+      "transferable_mean_rank": 9.0
+    }
+  },
+  "per_jd": [
+    {
+      "jd": "jd_ai_engineer",
+      "title": "AI Engineer - RAG Platform",
+      "relevant": 6,
+      "run_seconds": 0.078,
+      "run_cost_usd": 0.0,
+      "systems": {
+        "engine": {
+          "ndcg@10": 0.985,
+          "p@5": 1.0,
+          "recall@20": 1.0,
+          "stuffers_top10": 0,
+          "transferable_rank": 3,
+          "own_stuffer_rank": 12
+        },
+        "keyword_ats": {
+          "ndcg@10": 0.941,
+          "p@5": 0.8,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 7,
+          "own_stuffer_rank": 9
+        },
+        "bm25": {
+          "ndcg@10": 0.927,
+          "p@5": 1.0,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 8,
+          "own_stuffer_rank": 7
+        }
+      }
+    },
+    {
+      "jd": "jd_backend_python",
+      "title": "Python Backend Engineer - Payments",
+      "relevant": 12,
+      "run_seconds": 0.058,
+      "run_cost_usd": 0.0,
+      "systems": {
+        "engine": {
+          "ndcg@10": 0.919,
+          "p@5": 1.0,
+          "recall@20": 1.0,
+          "stuffers_top10": 0,
+          "transferable_rank": 3,
+          "own_stuffer_rank": 37
+        },
+        "keyword_ats": {
+          "ndcg@10": 0.655,
+          "p@5": 1.0,
+          "recall@20": 0.833,
+          "stuffers_top10": 1,
+          "transferable_rank": 14,
+          "own_stuffer_rank": 7
+        },
+        "bm25": {
+          "ndcg@10": 0.625,
+          "p@5": 1.0,
+          "recall@20": 0.917,
+          "stuffers_top10": 1,
+          "transferable_rank": 13,
+          "own_stuffer_rank": 7
+        }
+      }
+    },
+    {
+      "jd": "jd_data_engineer",
+      "title": "Data Engineer",
+      "relevant": 6,
+      "run_seconds": 0.061,
+      "run_cost_usd": 0.0,
+      "systems": {
+        "engine": {
+          "ndcg@10": 0.979,
+          "p@5": 0.8,
+          "recall@20": 1.0,
+          "stuffers_top10": 0,
+          "transferable_rank": 2,
+          "own_stuffer_rank": 21
+        },
+        "keyword_ats": {
+          "ndcg@10": 0.946,
+          "p@5": 0.8,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 9,
+          "own_stuffer_rank": 8
+        },
+        "bm25": {
+          "ndcg@10": 0.965,
+          "p@5": 0.8,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 6,
+          "own_stuffer_rank": 9
+        }
+      }
+    },
+    {
+      "jd": "jd_frontend_react",
+      "title": "React Frontend Engineer",
+      "relevant": 7,
+      "run_seconds": 0.058,
+      "run_cost_usd": 0.0,
+      "systems": {
+        "engine": {
+          "ndcg@10": 1.0,
+          "p@5": 1.0,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 4,
+          "own_stuffer_rank": 8
+        },
+        "keyword_ats": {
+          "ndcg@10": 0.921,
+          "p@5": 1.0,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 8,
+          "own_stuffer_rank": 7
+        },
+        "bm25": {
+          "ndcg@10": 0.87,
+          "p@5": 1.0,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 8,
+          "own_stuffer_rank": 7
+        }
+      }
+    },
+    {
+      "jd": "jd_devops_cloud",
+      "title": "DevOps / Cloud Engineer",
+      "relevant": 9,
+      "run_seconds": 0.062,
+      "run_cost_usd": 0.0,
+      "systems": {
+        "engine": {
+          "ndcg@10": 0.963,
+          "p@5": 1.0,
+          "recall@20": 1.0,
+          "stuffers_top10": 0,
+          "transferable_rank": 3,
+          "own_stuffer_rank": 28
+        },
+        "keyword_ats": {
+          "ndcg@10": 0.763,
+          "p@5": 0.8,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 8,
+          "own_stuffer_rank": 7
+        },
+        "bm25": {
+          "ndcg@10": 0.785,
+          "p@5": 0.8,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 9,
+          "own_stuffer_rank": 7
+        }
+      }
+    },
+    {
+      "jd": "jd_qa_automation",
+      "title": "QA Automation Engineer",
+      "relevant": 7,
+      "run_seconds": 0.053,
+      "run_cost_usd": 0.0,
+      "systems": {
+        "engine": {
+          "ndcg@10": 0.986,
+          "p@5": 1.0,
+          "recall@20": 1.0,
+          "stuffers_top10": 0,
+          "transferable_rank": 4,
+          "own_stuffer_rank": 11
+        },
+        "keyword_ats": {
+          "ndcg@10": 0.938,
+          "p@5": 0.8,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 8,
+          "own_stuffer_rank": 5
+        },
+        "bm25": {
+          "ndcg@10": 0.809,
+          "p@5": 1.0,
+          "recall@20": 1.0,
+          "stuffers_top10": 1,
+          "transferable_rank": 11,
+          "own_stuffer_rank": 6
+        }
+      }
+    },
+    {
+      "jd": "jd_data_scientist",
+      "title": "Data Scientist",
+      "relevant": 6,
+      "run_seconds": 0.057,
+      "run_cost_usd": 0.0,
+      "systems": {
+        "engine": {
+          "ndcg@10": 0.986,
+          "p@5": 1.0,
+          "recall@20": 1.0,
+          "stuffers_top10": 0,
+          "transferable_rank": 4,
+          "own_stuffer_rank": 33
+        },
+        "keyword_ats": {
+          "ndcg@10": 0.94,
+          "p@5": 0.8,
+          "recall@20": 1.0,
+          "stuffers_top10": 2,
+          "transferable_rank": 8,
+          "own_stuffer_rank": 5
+        },
+        "bm25": {
+          "ndcg@10": 0.899,
+          "p@5": 0.8,
+          "recall@20": 1.0,
+          "stuffers_top10": 2,
+          "transferable_rank": 8,
+          "own_stuffer_rank": 7
+        }
+      }
+    }
+  ],
+  "fairness": [
+    {
+      "base": "cv_008__base.txt",
+      "variant": "cv_008__name_gender_swap.txt",
+      "attribute": "name_gender_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_008__base.txt",
+      "variant": "cv_008__surname_swap.txt",
+      "attribute": "surname_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_008__base.txt",
+      "variant": "cv_008__personal_details_added.txt",
+      "attribute": "personal_details_added",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_008__base.txt",
+      "variant": "cv_008__career_gap_2y.txt",
+      "attribute": "career_gap_2y",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_009__base.txt",
+      "variant": "cv_009__name_gender_swap.txt",
+      "attribute": "name_gender_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_009__base.txt",
+      "variant": "cv_009__surname_swap.txt",
+      "attribute": "surname_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_009__base.txt",
+      "variant": "cv_009__personal_details_added.txt",
+      "attribute": "personal_details_added",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_009__base.txt",
+      "variant": "cv_009__career_gap_2y.txt",
+      "attribute": "career_gap_2y",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_021__base.txt",
+      "variant": "cv_021__name_gender_swap.txt",
+      "attribute": "name_gender_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_021__base.txt",
+      "variant": "cv_021__surname_swap.txt",
+      "attribute": "surname_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_021__base.txt",
+      "variant": "cv_021__personal_details_added.txt",
+      "attribute": "personal_details_added",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_021__base.txt",
+      "variant": "cv_021__career_gap_2y.txt",
+      "attribute": "career_gap_2y",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_047__base.txt",
+      "variant": "cv_047__name_gender_swap.txt",
+      "attribute": "name_gender_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_047__base.txt",
+      "variant": "cv_047__surname_swap.txt",
+      "attribute": "surname_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_047__base.txt",
+      "variant": "cv_047__personal_details_added.txt",
+      "attribute": "personal_details_added",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_047__base.txt",
+      "variant": "cv_047__career_gap_2y.txt",
+      "attribute": "career_gap_2y",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_057__base.txt",
+      "variant": "cv_057__name_gender_swap.txt",
+      "attribute": "name_gender_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_057__base.txt",
+      "variant": "cv_057__surname_swap.txt",
+      "attribute": "surname_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_057__base.txt",
+      "variant": "cv_057__personal_details_added.txt",
+      "attribute": "personal_details_added",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_037__base.txt",
+      "variant": "cv_037__name_gender_swap.txt",
+      "attribute": "name_gender_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_037__base.txt",
+      "variant": "cv_037__surname_swap.txt",
+      "attribute": "surname_swap",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_037__base.txt",
+      "variant": "cv_037__personal_details_added.txt",
+      "attribute": "personal_details_added",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    },
+    {
+      "base": "cv_037__base.txt",
+      "variant": "cv_037__career_gap_2y.txt",
+      "attribute": "career_gap_2y",
+      "engine_delta": 0.0,
+      "keyword_delta": 0.0
+    }
+  ],
+  "fairness_max_abs_delta": {
+    "name_gender_swap": 0.0,
+    "surname_swap": 0.0,
+    "personal_details_added": 0.0,
+    "career_gap_2y": 0.0
+  },
+  "injection_flags": {
+    "cv_007.pdf": [
+      "hidden_text_removed",
+      "possible_prompt_injection"
+    ],
+    "cv_051.txt": [
+      "possible_prompt_injection"
+    ]
+  },
+  "total_cost_usd": 0.0
+}

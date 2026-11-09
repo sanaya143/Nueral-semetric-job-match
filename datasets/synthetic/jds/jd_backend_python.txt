@@ -1,0 +1,21 @@
+Python Backend Engineer - Payments
+
+About the role
+Join the payments platform team that moves money for 3 million merchants.
+
+Must have
+- Strong Python
+- Experience with FastAPI, Django or Flask
+- REST API design and development
+- PostgreSQL or MySQL, including query tuning
+- 4+ years building backend services
+
+Nice to have
+- Redis or Kafka
+- AWS
+- Payments or fintech domain experience
+- Unit testing with pytest
+
+Logistics
+- Location: Pune (Hybrid)
+- Notice period: 60 days or less

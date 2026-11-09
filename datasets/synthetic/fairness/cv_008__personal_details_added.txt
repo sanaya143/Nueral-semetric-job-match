@@ -1,0 +1,41 @@
+Gurpreet Reddy
+Python Developer | Pune
+Email: gurpreet.reddy@example.com | Phone: +91 90000 48945 | linkedin.com/in/example-cv_008
+
+Summary
+Python Developer with 4.9 years of experience in Python backend services and APIs.
+
+Experience
+
+Python Developer | Nimbusleaf Technologies | Nov 2024 - Present
+- Built an internal document Q&A assistant on the OpenAI API for 9,000 HR policy pages
+- Implemented a document retrieval pipeline with chunking and top-k search over pgvector, feeding the most relevant passages to the model
+- Deployed the assistant to production on AWS using Docker; it now serves 300 internal users
+- Developed Python backend services with FastAPI
+Tech stack: Python, FastAPI, Docker, AWS, OpenAI API, pgvector
+
+Backend Engineer | Peregrine Ledger Labs | Nov 2021 - Oct 2024
+- Grounded every answer in the retrieved passages so that each reply cites its source document
+- Migrated a monolith to microservices communicating over Kafka
+- Built Django REST Framework services for a lending workflow used by 40 branches
+Tech stack: Django, Kafka
+
+Skills
+PostgreSQL, Docker, REST APIs, Redis, System Design, Kafka, Python, Django
+
+Education
+B.E. in Information Technology | Ganga Valley Institute of Technology | 2021
+
+Preferences
+Preferred location: Pune | Work mode: Hybrid | Notice period: 60 days
+
+Personal Details
+Date of Birth: 14/08/1988
+Gender: Male
+Marital Status: Married
+Religion: Sikh
+Category: General
+Nationality: Indian
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

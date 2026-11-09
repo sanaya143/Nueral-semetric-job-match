@@ -1,0 +1,19 @@
+Data Scientist
+
+About the role
+Build models that decide which customers we call, and prove they work.
+
+Must have
+- Python
+- Building machine learning models with scikit-learn or similar
+- Statistics and A/B testing
+- SQL
+- 2+ years of applied data science experience
+
+Nice to have
+- Deep learning (PyTorch or TensorFlow)
+- NLP
+- Model deployment with MLflow
+
+Logistics
+- Location: Bengaluru (Hybrid)

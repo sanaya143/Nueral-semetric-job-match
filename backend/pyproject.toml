@@ -1,0 +1,31 @@
+[project]
+name = "nsm"
+version = "0.1.0"
+description = "Neural-Semantic Matching Protocol: initial local build (SQLite + local files, offline or OpenRouter mode)"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "sqlalchemy>=2.0.30",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "httpx>=0.27",
+    "numpy>=2.0",
+    "pymupdf>=1.24",
+    "python-docx>=1.1",
+    "python-multipart>=0.0.9",
+    "langgraph>=0.2",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "fpdf2>=2.7"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["nsm"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

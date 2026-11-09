@@ -1,0 +1,32 @@
+Shreya Reddy
+Senior Data Engineer | Chennai
+Email: shreya.reddy@example.com | Phone: +91 90000 80727 | linkedin.com/in/example-cv_021
+
+Summary
+Senior Data Engineer with 5.2 years of experience in batch and streaming data pipelines.
+
+Experience
+
+Senior Data Engineer | Saffronlane Payments | Jan 2026 - Present
+- Wrote complex SQL queries with window functions for revenue attribution
+- Developed PySpark data quality checks that caught 98% of schema drift issues
+- Wrote dbt models with tests and documentation for the finance data mart
+Tech stack: Python, SQL, Apache Spark, dbt, BigQuery, AWS
+
+Data Engineer | Monsoonix Cloudworks | Sep 2023 - Dec 2025
+- Built BigQuery pipelines on GCP Dataflow for marketing data
+- Migrated on-prem ETL jobs to AWS Glue and Redshift, cutting costs by 35%
+- Built Apache Spark batch pipelines processing 4 TB of clickstream data daily
+Tech stack: Apache Spark, AWS, BigQuery, Redshift, dbt, Airflow
+
+Senior Data Engineer | Silvermist Commerce | Jul 2021 - Aug 2023
+- Designed a star schema in Snowflake for sales reporting used by 200 analysts
+- Implemented Kafka streaming pipelines for order events with exactly-once delivery
+- Orchestrated 120 Airflow DAGs with SLA alerts and automatic retries
+Tech stack: Airflow, Snowflake, Kafka, dbt, SQL
+
+Skills
+Spark, Snowflake, Hadoop, Airflow, Big Data, Databricks
+
+Education
+MCA | Ganga Valley Institute of Technology | 2021

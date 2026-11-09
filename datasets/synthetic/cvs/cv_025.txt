@@ -1,0 +1,37 @@
+Anil Kaur
+Senior Data Engineer | Ahmedabad
+Email: anil.kaur@example.com | Phone: +91 90000 91502 | linkedin.com/in/example-cv_025
+
+Summary
+Senior Data Engineer with 1.5 years of experience in batch and streaming data pipelines.
+
+Experience
+
+Senior Data Engineer | Peregrine Ledger Labs | May 2025 - Present
+- Wrote dbt models with tests and documentation for the finance data mart
+- Built Apache Spark batch pipelines processing 4 TB of clickstream data daily
+- Built BigQuery pipelines on GCP Dataflow for marketing data
+Tech stack: SQL, Apache Spark, dbt, BigQuery, Airflow, Python
+
+Projects
+
+Project: Personal - ops assistant
+- Implemented Kafka streaming pipelines for order events with exactly-once delivery
+
+Skills
+Hadoop, Big Data, SQL, Databricks, ETL, Data Warehousing, Spark, Kafka, AWS
+
+Education
+B.E. in Information Technology | Western Ghats University | 2024
+
+Personal Details
+Date of Birth: 07/12/1994
+Gender: Male
+Marital Status: Married
+Religion: Christian
+Category: OBC
+Nationality: Indian
+Father's Name: Faisal Gill
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

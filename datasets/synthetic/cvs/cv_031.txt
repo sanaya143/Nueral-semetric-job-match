@@ -1,0 +1,32 @@
+Ananya Hegde
+UI Engineer | Hyderabad
+Email: ananya.hegde@example.com | Phone: +91 90000 37366 | linkedin.com/in/example-cv_031
+
+Summary
+UI Engineer with 8.1 years of experience in React and TypeScript web applications.
+
+Experience
+
+UI Engineer | Peregrine Ledger Labs | Sep 2021 - Present
+- Built a React and TypeScript design system with 60 components used across five products
+- Implemented state management with Redux Toolkit for a trading screen that updates 50 times a second
+Tech stack: React, TypeScript, Redux, Jest, Next.js
+
+Frontend Engineer | Junipero Mobility | Jul 2021 - Aug 2021
+- Wrote Jest and React Testing Library tests for the checkout flows
+- Reduced the frontend bundle size by 40% with code splitting and lazy loading
+Tech stack: Jest, React, Redux
+
+React Developer | Silvermist Commerce | Aug 2018 - Jun 2021
+- Migrated a legacy jQuery dashboard to Next.js, improving the Lighthouse score from 52 to 91
+- Integrated REST APIs and GraphQL into the customer portal
+Tech stack: React, Next.js, GraphQL, TypeScript, JavaScript
+
+Skills
+React, Angular, UI/UX, TypeScript, Webpack, Next.js, HTML
+
+Education
+B.E. in Computer Engineering | Konkan Technical University | 2018
+
+Preferences
+Preferred location: Hyderabad | Work mode: Remote | Notice period: 45 days

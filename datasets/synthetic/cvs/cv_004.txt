@@ -1,0 +1,35 @@
+Shreya Rao
+GenAI Engineer | Pune
+Email: shreya.rao@example.com | Phone: +91 90000 03386 | linkedin.com/in/example-cv_004
+
+Summary
+GenAI Engineer with 7.8 years of experience in LLM applications and retrieval systems.
+
+Experience
+
+GenAI Engineer | Silvermist Commerce | Jun 2023 - Present
+- Developed Python FastAPI services exposing the retrieval pipeline to three internal products
+- Integrated pgvector into the existing PostgreSQL database to add semantic search over 500K product descriptions
+- Wrote Python prompt templates and few-shot prompting guidelines adopted by four teams
+Tech stack: Python, pgvector, FastAPI, Qdrant, Docker
+
+AI Engineer | Bluepeak Retail Labs | Jun 2022 - May 2023
+- Built an evaluation harness tracking hallucination rate and retrieval recall for every prompt change
+- Implemented hybrid search (BM25 + embeddings) with a cross-encoder reranker, improving answer accuracy from 71% to 88% on an internal eval set
+- Created a LangGraph agent with tool calling that handles invoice exceptions, processing 3,000 cases a month
+Tech stack: OpenAI API, LangGraph, PyTorch, pgvector
+
+Applied AI Engineer | Peregrine Ledger Labs | Nov 2018 - May 2022
+- Designed a Qdrant vector store for 2M document chunks with metadata filtering and nightly re-indexing
+- Fine-tuned a small open model with LoRA for ticket classification, reaching 92% F1
+- Built a retrieval-augmented generation (RAG) assistant over 30,000 policy documents using LangChain and GPT-4o, cutting support lookup time by 45%
+Tech stack: LangChain, OpenAI API, Qdrant, Hugging Face, AWS, PyTorch
+
+Skills
+Generative AI, Deep Learning, Docker, Agentic AI, MLOps, NLP, Fine-tuning, LLM, AWS, Machine Learning
+
+Education
+B.Tech in Electronics | Ganga Valley Institute of Technology | 2017
+
+Preferences
+Preferred location: Pune | Work mode: Hybrid | Notice period: 90 days

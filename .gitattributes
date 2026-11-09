@@ -1,0 +1,5 @@
+# Keep LF everywhere so a Windows checkout does not rewrite files (the synthetic CV texts are
+# hashed and parsed by character offset). Binary files (PDF, DOCX) are detected automatically.
+* text=auto eol=lf
+*.pdf binary
+*.docx binary

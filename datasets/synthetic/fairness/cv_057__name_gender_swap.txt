@@ -1,0 +1,28 @@
+Nandini Hegde
+Machine Learning Scientist | Hyderabad
+Email: nandini.hegde@example.com | Phone: +91 90000 51141 | linkedin.com/in/example-cv_057
+
+Summary
+Machine Learning Scientist with 2.2 years of experience in predictive models and experimentation.
+
+Experience
+
+Machine Learning Scientist | Tamarind Data Co | Sep 2024 - Present
+- Developed a demand forecasting model in Python with pandas, reducing stock-outs by 12%
+- Deployed models with MLflow and SageMaker endpoints
+- Built NLP sentiment analysis over 500K customer reviews
+Tech stack: Python, pandas, MLflow, NumPy, PyTorch
+
+Projects
+
+Project: Personal - ops assistant
+- Trained PyTorch deep learning models for product image classification at 94% accuracy
+
+Skills
+NLP, TensorFlow, Big Data, Python, Tableau, SQL, AI, Data Science
+
+Education
+B.Tech in Electronics | Kaveri School of Computing | 2024
+
+Preferences
+Preferred location: Hyderabad | Work mode: Hybrid | Notice period: 90 days

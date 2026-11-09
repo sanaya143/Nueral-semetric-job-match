@@ -1,0 +1,41 @@
+Gurpreet Nair
+Data Analyst | Mumbai
+Email: gurpreet.nair@example.com | Phone: +91 90000 63091 | linkedin.com/in/example-cv_061
+
+Summary
+Data Analyst with 5.7 years of experience in reporting, dashboards and business analysis.
+
+Experience
+
+Data Analyst | Maplecrest Services | Oct 2023 - Present
+- Used Python and pandas to clean survey data
+- Wrote SQL queries to reconcile billing data, finding Rs 40 lakh in leakage
+- Automated weekly Excel reports with pivot tables and macros, saving 10 hours a week
+Tech stack: SQL, Excel, Python, Tableau, Power BI
+
+Data Analyst | Saffronlane Payments | Feb 2021 - Sep 2023
+- Built Power BI dashboards tracking sales KPIs for 30 regional managers
+- Analysed customer data to segment users for the marketing team
+- Created Tableau dashboards for the operations team
+Tech stack: Power BI, Tableau, Excel, SQL
+
+Skills
+Python, Machine Learning, Data Analysis, Power BI, Excel, Statistics
+
+Education
+M.Tech in Data Science | Western Ghats University | 2021
+
+Preferences
+Preferred location: Mumbai | Work mode: Onsite | Notice period: 60 days
+
+Personal Details
+Date of Birth: 28/01/1989
+Gender: Male
+Marital Status: Married
+Religion: Sikh
+Category: ST
+Nationality: Indian
+Father's Name: Devendra Deshpande
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

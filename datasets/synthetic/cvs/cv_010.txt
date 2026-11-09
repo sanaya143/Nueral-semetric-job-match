@@ -1,0 +1,39 @@
+Keerthana Das
+Python Developer | Hyderabad
+Email: keerthana.das@example.com | Phone: +91 90000 17442 | linkedin.com/in/example-cv_010
+
+Summary
+Python Developer with 6.2 years of experience in Python backend services and APIs.
+
+Experience
+
+Python Developer | Nimbusleaf Technologies | Oct 2022 - Present
+- Developed Python Flask services that send UPI payment notifications to 1.5M users
+- Designed REST APIs in FastAPI for a payments reconciliation platform handling 2M transactions a day
+- Optimised PostgreSQL queries and indexes, cutting p95 latency from 900 ms to 180 ms
+- Set up CI/CD with GitHub Actions for 12 services
+Tech stack: Python, FastAPI, Flask, PostgreSQL, Django, pytest
+
+Backend Engineer | Peregrine Ledger Labs | Aug 2020 - Sep 2022
+- Wrote pytest suites in Python raising test coverage from 40% to 85%
+- Built Django REST Framework services for a lending workflow used by 40 branches
+- Migrated a monolith to microservices communicating over Kafka
+Tech stack: Python, Django, Kafka, pytest, MySQL, AWS
+
+Skills
+Git, Python, MySQL, Kafka, MongoDB, AWS, System Design, PostgreSQL, Django, Microservices
+
+Education
+B.Tech in Electronics | Vindhya Institute of Science | 2020
+
+Personal Details
+Date of Birth: 06/12/1994
+Gender: Female
+Marital Status: Married
+Religion: Christian
+Category: SC
+Nationality: Indian
+Father's Name: Naveen Mishra
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

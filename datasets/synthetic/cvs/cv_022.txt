@@ -1,0 +1,32 @@
+Lakshmi D'Souza
+Senior Data Engineer | Pune
+Email: lakshmi.dsouza@example.com | Phone: +91 90000 92557 | linkedin.com/in/example-cv_022
+
+Summary
+Senior Data Engineer with 4.8 years of experience in batch and streaming data pipelines.
+
+Experience
+
+Senior Data Engineer | Peregrine Ledger Labs | Jun 2025 - Present
+- Wrote complex SQL queries with window functions for revenue attribution
+- Built Apache Spark batch pipelines processing 4 TB of clickstream data daily
+- Orchestrated 120 Airflow DAGs with SLA alerts and automatic retries
+Tech stack: SQL, Apache Spark, Airflow, Snowflake, Redshift
+
+Data Engineer | Kestrelwave Analytics | Nov 2023 - May 2025
+- Designed a star schema in Snowflake for sales reporting used by 200 analysts
+- Developed PySpark data quality checks that caught 98% of schema drift issues
+- Implemented Kafka streaming pipelines for order events with exactly-once delivery
+Tech stack: Python, Apache Spark, Snowflake, Kafka, Airflow, SQL
+
+Senior Data Engineer | Monsoonix Cloudworks | Nov 2021 - Oct 2023
+- Migrated on-prem ETL jobs to AWS Glue and Redshift, cutting costs by 35%
+- Built BigQuery pipelines on GCP Dataflow for marketing data
+- Wrote dbt models with tests and documentation for the finance data mart
+Tech stack: SQL, dbt, AWS, BigQuery, Redshift, Snowflake
+
+Skills
+Data Warehousing, Python, Airflow, Databricks, ETL, Kafka, dbt
+
+Education
+B.E. in Information Technology | Western Ghats University | 2021

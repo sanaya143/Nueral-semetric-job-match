@@ -1,0 +1,24 @@
+Sameer Sharma
+DevOps Engineer | Ahmedabad
+Email: sameer.sharma@example.com | Phone: +91 90000 11357 | linkedin.com/in/example-cv_043
+
+Summary
+Passionate DevOps Engineer with expertise in DevOps, AWS, Azure, GCP, Docker, Kubernetes. Results-driven team player and quick learner with excellent communication skills.
+
+Experience
+
+DevOps Engineer | Peregrine Ledger Labs | Nov 2024 - Present
+- Responsible for supporting the team on DevOps tasks
+- Worked on various internal projects
+- Exposure to cloud and AWS
+
+DevOps Engineer | Coralbyte Solutions | Mar 2022 - Oct 2024
+- Part of the team handling client requirements and documentation
+- Attended trainings on Cloud Computing and Cloud Computing
+- Involved in daily stand-ups and status reporting
+
+Skills
+DevOps, AWS, Azure, GCP, Docker, Kubernetes, Terraform, Ansible, Jenkins, CI/CD, Linux, Prometheus, Cloud Computing
+
+Education
+B.Tech in Computer Science | Northgate College of Engineering | 2021

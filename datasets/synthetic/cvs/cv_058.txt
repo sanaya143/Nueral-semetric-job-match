@@ -1,0 +1,43 @@
+Meera Mukherjee
+Machine Learning Scientist | Hyderabad
+Email: meera.mukherjee@example.com | Phone: +91 90000 69076 | linkedin.com/in/example-cv_058
+
+Summary
+Machine Learning Scientist with 1.7 years of experience in predictive models and experimentation.
+
+Experience
+
+Machine Learning Scientist | Peregrine Ledger Labs | Mar 2025 - Present
+- Developed a demand forecasting model in Python with pandas, reducing stock-outs by 12%
+- Built a gradient boosting churn model in scikit-learn that lifted retention campaign ROI by 18%
+- Trained PyTorch deep learning models for product image classification at 94% accuracy
+Tech stack: Python, scikit-learn, pandas, PyTorch, BigQuery, NumPy
+
+Projects
+
+Project: Capstone - automation
+- Designed A/B tests and hypothesis testing for pricing experiments across 2M users
+
+Project: Hackathon - portal
+- Deployed models with MLflow and SageMaker endpoints
+
+Skills
+Big Data, R, TensorFlow, Pandas, Machine Learning, Tableau, Data Science, Statistics, AI
+
+Education
+B.Sc in Statistics | Vindhya Institute of Science | 2024
+
+Preferences
+Preferred location: Hyderabad | Work mode: Hybrid | Notice period: 15 days
+
+Personal Details
+Date of Birth: 13/12/1998
+Gender: Female
+Marital Status: Single
+Religion: Muslim
+Category: OBC
+Nationality: Indian
+Father's Name: Sameer Naidu
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

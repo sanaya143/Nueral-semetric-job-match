@@ -1,0 +1,41 @@
+Ashwin Sharma
+DevOps Engineer | Noida
+Email: ashwin.sharma@example.com | Phone: +91 90000 83427 | linkedin.com/in/example-cv_037
+
+Summary
+DevOps Engineer with 8.9 years of experience in cloud infrastructure, Kubernetes and delivery pipelines.
+
+Experience
+
+DevOps Engineer | Lotusgrid Fintech | Nov 2024 - Present
+- Migrated workloads from on-prem to Azure using Azure DevOps pipelines
+- Ran 40 microservices on Kubernetes (EKS) with Helm charts and autoscaling
+- Provisioned AWS infrastructure with Terraform modules across three environments
+- Containerised legacy Java applications with Docker
+Tech stack: AWS, Terraform, Kubernetes, Docker, Azure, Linux
+
+DevOps Engineer | Orchidline Health Systems | Nov 2017 - Oct 2024
+- Led incident response and the on-call rotation, reducing MTTR by 50%
+- Implemented Jenkins pipelines for 25 repositories
+- Set up Prometheus and Grafana monitoring with alerting, holding 99.95% uptime
+Tech stack: Jenkins, Prometheus, Grafana, Kubernetes, AWS
+
+Skills
+Prometheus, AWS, Linux, GCP, Kubernetes, Ansible, Docker, Terraform
+
+Education
+B.Tech in Computer Science | Kaveri School of Computing | 2017
+
+Preferences
+Preferred location: Noida | Work mode: Hybrid | Notice period: 15 days
+
+Personal Details
+Date of Birth: 14/08/1988
+Gender: Male
+Marital Status: Married
+Religion: Buddhist
+Category: OBC
+Nationality: Indian
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

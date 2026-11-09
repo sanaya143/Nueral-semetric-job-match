@@ -1,0 +1,20 @@
+Data Engineer
+
+About the role
+You will build the pipelines behind our analytics and machine learning platform.
+
+Requirements
+- Advanced SQL
+- Apache Spark or PySpark for large-scale batch processing
+- Workflow orchestration with Airflow or dbt
+- Designing data pipelines (batch or streaming)
+- Cloud data warehouse experience: Snowflake, BigQuery or Redshift
+- 3+ years of data engineering experience
+
+Preferred
+- Kafka
+- AWS or GCP
+- Python
+
+Logistics
+- Location: Hyderabad (Hybrid)

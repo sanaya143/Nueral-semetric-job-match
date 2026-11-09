@@ -1,0 +1,28 @@
+Rahul Fernandes
+Frontend Engineer | Kochi
+Email: rahul.fernandes@example.com | Phone: +91 90000 97401 | linkedin.com/in/example-cv_034
+
+Summary
+Frontend Engineer with 2.3 years of experience in React and TypeScript web applications.
+
+Experience
+
+Frontend Engineer | Harborpine Insurance Tech | Jul 2024 - Present
+- Implemented state management with Redux Toolkit for a trading screen that updates 50 times a second
+- Built responsive layouts with Tailwind CSS for mobile-first pages
+- Developed accessible forms in HTML5 and CSS3 meeting WCAG 2.1 AA
+Tech stack: React, Redux, Tailwind CSS, GraphQL, TypeScript
+
+Projects
+
+Project: Personal - ops assistant
+- Reduced the frontend bundle size by 40% with code splitting and lazy loading
+
+Skills
+CSS, TypeScript, Angular, Redux, UI/UX, HTML, Bootstrap, Webpack, JavaScript, Next.js
+
+Education
+B.Sc in Statistics | Vindhya Institute of Science | 2024
+
+Preferences
+Preferred location: Kochi | Work mode: Hybrid | Notice period: 60 days

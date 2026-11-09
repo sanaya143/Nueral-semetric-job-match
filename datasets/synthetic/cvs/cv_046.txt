@@ -1,0 +1,42 @@
+Gauri D'Souza
+Test Automation Engineer | Gurugram
+Email: gauri.dsouza@example.com | Phone: +91 90000 91058 | linkedin.com/in/example-cv_046
+
+Summary
+Test Automation Engineer with 5.7 years of experience in test automation frameworks and CI quality gates.
+
+Experience
+
+Test Automation Engineer | Brightkiln Media | Nov 2023 - Present
+- Wrote Cypress end-to-end tests for the onboarding flow
+- Built pytest-based API test suites in Python for 20 microservices
+- Integrated automated tests into Jenkins CI/CD so every merge runs the regression suite
+- Migrated UI tests to Playwright with TypeScript, cutting suite time from 3 hours to 25 minutes
+Tech stack: Playwright, Cypress, TypeScript, Postman, Jenkins, Python
+
+QA Automation Engineer | Harborpine Insurance Tech | Feb 2021 - Oct 2023
+- Built a Selenium WebDriver automation framework in Java with TestNG covering 1,400 regression cases
+- Ran load testing with JMeter for the payments API at 5,000 requests per second
+- Automated API testing with Rest Assured and Postman for 300 endpoints
+Tech stack: Selenium, Java, Postman, JMeter, TestNG, Python
+
+Skills
+JIRA, TestNG, Postman, Selenium, Cypress, API Testing, Agile, JMeter
+
+Education
+B.E. in Computer Engineering | Vindhya Institute of Science | 2020
+
+Preferences
+Preferred location: Gurugram | Work mode: Onsite | Notice period: 90 days
+
+Personal Details
+Date of Birth: 27/07/1996
+Gender: Female
+Marital Status: Married
+Religion: Buddhist
+Category: ST
+Nationality: Indian
+Father's Name: Yusuf Pillai
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

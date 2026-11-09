@@ -1,0 +1,37 @@
+Harish Ansari
+Software Engineer | Hyderabad
+Email: harish.ansari@example.com | Phone: +91 90000 45030 | linkedin.com/in/example-cv_019
+
+Summary
+Software Engineer with 2 years of experience in Java and Spring Boot microservices.
+
+Experience
+
+Software Engineer | Copperfern Infotech | Nov 2024 - Present
+- Built Jenkins pipelines for build, test and release of 15 services
+- Wrote JUnit and Mockito tests for the pricing engine
+- Implemented Kafka consumers for shipment events with retry and dead-letter queues
+Tech stack: Java, Kafka, Jenkins, JUnit, Kubernetes, Spring Boot
+
+Projects
+
+Project: Hackathon - automation
+- Dockerised legacy Java applications and moved them off bare metal
+
+Skills
+Hibernate, Jenkins, MySQL, Java, REST APIs, Kubernetes, Microservices
+
+Education
+B.Tech in Electronics | Konkan Technical University | 2024
+
+Personal Details
+Date of Birth: 07/04/1993
+Gender: Male
+Marital Status: Married
+Religion: Christian
+Category: SC
+Nationality: Indian
+Father's Name: Imran Saxena
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

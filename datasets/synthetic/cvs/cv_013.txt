@@ -1,0 +1,37 @@
+Zaid Joshi
+Software Engineer (Backend) | Chennai
+Email: zaid.joshi@example.com | Phone: +91 90000 04792 | linkedin.com/in/example-cv_013
+
+Summary
+Software Engineer (Backend) with 1.8 years of experience in Python backend services and APIs.
+
+Experience
+
+Software Engineer (Backend) | Junipero Mobility | Jan 2025 - Present
+- Developed Python Flask services that send UPI payment notifications to 1.5M users
+- Optimised PostgreSQL queries and indexes, cutting p95 latency from 900 ms to 180 ms
+- Introduced Redis caching for account lookups, reducing database load by 60%
+Tech stack: Python, Flask, PostgreSQL, Redis, FastAPI, Django
+
+Projects
+
+Project: Hackathon - analytics tool
+- Wrote pytest suites in Python raising test coverage from 40% to 85%
+
+Skills
+Git, Kafka, MySQL, Kubernetes, PostgreSQL, Redis
+
+Education
+B.Sc in Statistics | Konkan Technical University | 2024
+
+Personal Details
+Date of Birth: 26/09/1989
+Gender: Male
+Marital Status: Single
+Religion: Jain
+Category: ST
+Nationality: Indian
+Father's Name: Harish Gill
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

@@ -1,0 +1,19 @@
+React Frontend Engineer
+
+About the role
+Build the web app our customers use every day.
+
+Must have
+- React with hooks
+- TypeScript
+- HTML, CSS and responsive design
+- 2+ years of frontend development
+
+Nice to have
+- Next.js
+- Redux or Zustand
+- Jest or React Testing Library
+- GraphQL
+
+Logistics
+- Work mode: Remote (India)

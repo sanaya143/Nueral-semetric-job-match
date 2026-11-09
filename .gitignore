@@ -1,0 +1,24 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# local storage (SQLite DB, uploaded CVs)
+data/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# node
+node_modules/
+frontend/dist/
+
+# os / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.tsbuildinfo

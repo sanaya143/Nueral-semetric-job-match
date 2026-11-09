@@ -1,0 +1,18 @@
+QA Automation Engineer
+
+About the role
+Raise the quality bar for a payments product with weekly releases.
+
+Must have
+- UI test automation with Selenium, Playwright or Cypress
+- API testing (Postman, Rest Assured or similar)
+- Programming in Java, Python or TypeScript
+- Running automated tests in CI/CD pipelines
+- 3+ years in QA automation
+
+Nice to have
+- Performance testing with JMeter
+- Agile / Scrum
+
+Logistics
+- Location: Noida (Hybrid)
