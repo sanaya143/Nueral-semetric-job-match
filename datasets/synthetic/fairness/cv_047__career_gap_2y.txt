@@ -1,0 +1,39 @@
+Harpreet Sharma
+QA Automation Engineer | Hyderabad
+Email: harpreet.sharma@example.com | Phone: +91 90000 78500 | linkedin.com/in/example-cv_047
+
+Summary
+QA Automation Engineer with 5 years of experience in test automation frameworks and CI quality gates.
+Career break (2 years): family caregiving.
+
+Experience
+
+QA Automation Engineer | Vantaloom Learning | Jun 2022 - Present
+- Built a Selenium WebDriver automation framework in Java with TestNG covering 1,400 regression cases
+- Built pytest-based API test suites in Python for 20 microservices
+- Ran load testing with JMeter for the payments API at 5,000 requests per second
+Tech stack: Selenium, Java, Postman, JMeter, TestNG, Python
+
+QA Automation Engineer | Orchidline Health Systems | Oct 2019 - May 2020
+- Automated API testing with Rest Assured and Postman for 300 endpoints
+- Wrote Cypress end-to-end tests for the onboarding flow
+- Migrated UI tests to Playwright with TypeScript, cutting suite time from 3 hours to 25 minutes
+Tech stack: Playwright, Cypress, TypeScript, Postman, Java, Python
+
+Skills
+JIRA, Manual Testing, Postman, Agile, TestNG, Automation Testing, Cypress, JMeter
+
+Education
+MCA | Northgate College of Engineering | 2021
+
+Personal Details
+Date of Birth: 27/02/1994
+Gender: Female
+Marital Status: Married
+Religion: Muslim
+Category: ST
+Nationality: Indian
+Father's Name: Imran Saxena
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

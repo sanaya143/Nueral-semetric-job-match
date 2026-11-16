@@ -1,0 +1,34 @@
+[project]
+name = "nsm"
+version = "1.2.0"
+description = "Neural-Semantic Matching Protocol: SQLite locally or PostgreSQL on Azure; offline or OpenRouter mode"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "sqlalchemy>=2.0.30",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "httpx>=0.27",
+    "numpy>=2.0",
+    "pymupdf>=1.24",
+    "python-docx>=1.1",
+    "python-multipart>=0.0.9",
+    "langgraph>=0.2",
+    "rapidocr-onnxruntime>=1.4.4",  # local OCR for scanned PDFs and image CVs (models bundled, CPU, offline)
+    "psycopg[binary]>=3.2",         # PostgreSQL driver (Azure Database for PostgreSQL)
+    "pyjwt[crypto]>=2.9",           # Entra ID / OIDC token checks
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "fpdf2>=2.7"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["nsm"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

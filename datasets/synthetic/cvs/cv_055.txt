@@ -1,0 +1,40 @@
+Arjun Naidu
+Machine Learning Scientist | Pune
+Email: arjun.naidu@example.com | Phone: +91 90000 79017 | linkedin.com/in/example-cv_055
+
+Summary
+Machine Learning Scientist with 6.6 years of experience in predictive models and experimentation.
+
+Experience
+
+Machine Learning Scientist | Tamarind Data Co | May 2025 - Present
+- Designed A/B tests and hypothesis testing for pricing experiments across 2M users
+- Wrote SQL feature pipelines in BigQuery
+Tech stack: SQL, BigQuery, pandas, MLflow
+
+Data Scientist | Kestrelwave Analytics | Apr 2022 - Apr 2025
+- Built NLP sentiment analysis over 500K customer reviews
+- Deployed models with MLflow and SageMaker endpoints
+Tech stack: MLflow, pandas, Python
+
+Machine Learning Scientist | Maplecrest Services | Feb 2020 - Mar 2022
+- Ran exploratory data analysis and presented insights to leadership
+Tech stack: SQL, Python
+
+Skills
+AI, Statistics, Big Data, Tableau, R, Pandas, Python, SQL, NLP, Data Science
+
+Education
+B.Tech in Computer Science | Ganga Valley Institute of Technology | 2019
+
+Personal Details
+Date of Birth: 12/04/1991
+Gender: Male
+Marital Status: Single
+Religion: Buddhist
+Category: OBC
+Nationality: Indian
+Father's Name: Ashwin Gill
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

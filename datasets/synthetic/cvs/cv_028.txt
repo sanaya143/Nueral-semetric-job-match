@@ -1,0 +1,30 @@
+Nandini D'Souza
+Backend Engineer | Hyderabad
+Email: nandini.dsouza@example.com | Phone: +91 90000 66067 | linkedin.com/in/example-cv_028
+
+Summary
+Backend Engineer with 6.2 years of experience in Python backend services and APIs.
+
+Experience
+
+Backend Engineer | Maplecrest Services | Mar 2021 - Present
+- Moved nightly batch jobs from cron scripts to Airflow DAGs with retries and alerting
+- Wrote PySpark jobs that aggregate 600 GB of app events into daily tables
+- Modelled reporting tables in Snowflake for the analytics team
+- Wrote the SQL transformations behind the weekly revenue report
+Tech stack: SQL, Apache Spark, Airflow, Snowflake
+
+Backend Engineer | Tamarind Data Co | Aug 2020 - Feb 2021
+- Built an ingestion pipeline that loads partner CSV files into the warehouse every hour
+- Implemented OAuth2 and JWT authentication for partner APIs
+- Built Django REST Framework services for a lending workflow used by 40 branches
+Tech stack: Django
+
+Skills
+Docker, Python, AWS, Redis, Django, Kafka, FastAPI, REST APIs
+
+Education
+B.Tech in Electronics | Konkan Technical University | 2020
+
+Preferences
+Preferred location: Hyderabad | Work mode: Hybrid | Notice period: 90 days

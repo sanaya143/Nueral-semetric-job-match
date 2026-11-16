@@ -1,0 +1,29 @@
+AI Engineer - RAG Platform
+
+About the role
+We are building an internal knowledge assistant for the operations teams of a lending company.
+
+Responsibilities
+- Build and run retrieval-based LLM applications used by operations staff
+- Own the evaluation and quality of answers
+
+Must have
+- Strong Python
+- Hands-on experience building LLM applications (OpenAI API, Claude API or open models)
+- Built RAG pipelines: chunking, embeddings, retrieval and grounding
+- Experience with a vector database (pgvector, Qdrant, Pinecone or similar)
+- Production deployment: you have shipped services into production
+- 3+ years of software engineering experience
+
+Nice to have
+- LangChain or LangGraph
+- LLM evaluation (hallucination rate, retrieval recall)
+- Docker and AWS
+- Fintech or lending domain experience
+
+Good to learn
+- Fine-tuning with LoRA
+
+Logistics
+- Location: Bengaluru (Hybrid)
+- Notice period: 30 days or less

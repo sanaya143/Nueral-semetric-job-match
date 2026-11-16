@@ -1,0 +1,40 @@
+Suresh Thomas
+Software Engineer (Backend) | Bengaluru
+Email: suresh.thomas@example.com | Phone: +91 90000 97130 | linkedin.com/in/example-cv_052
+
+Summary
+Software Engineer (Backend) with 6.3 years of experience in Python backend services and APIs.
+
+Experience
+
+Software Engineer (Backend) | Orchidline Health Systems | Sep 2022 - Present
+- Wrote end-to-end browser tests with Playwright for every release of the web app
+- Added API tests with Postman collections that run in our GitHub Actions pipeline
+- Built automated regression checks in Python that run before each deployment
+Tech stack: Python, Playwright, Postman
+
+Backend Engineer | Brightkiln Media | Jun 2020 - Aug 2022
+- Developed Python Flask services that send UPI payment notifications to 1.5M users
+- Migrated a monolith to microservices communicating over Kafka
+Tech stack: Python, Flask, Kafka
+
+Skills
+Git, Docker, FastAPI, Python, MongoDB, REST APIs, Microservices, AWS
+
+Education
+B.Sc in Statistics | Ganga Valley Institute of Technology | 2019
+
+Preferences
+Preferred location: Bengaluru | Work mode: Remote | Notice period: 15 days
+
+Personal Details
+Date of Birth: 22/09/1995
+Gender: Male
+Marital Status: Single
+Religion: Christian
+Category: OBC
+Nationality: Indian
+Father's Name: Harish Singh
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

@@ -1,0 +1,456 @@
+jd_id,cv_file,grade,must_coverage,years,persona,archetype,reason
+jd_ai_engineer,cv_001.txt,3,1.0,4.5,strong,ai_engineer,all must-haves backed by described work; experience fits
+jd_ai_engineer,cv_002.docx,3,1.0,6.9,strong,ai_engineer,all must-haves backed by described work; experience fits
+jd_ai_engineer,cv_003.pdf,1,0.42,5.6,partial,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_ai_engineer,cv_004.txt,2,0.8,7.8,partial,ai_engineer,most must-haves backed by described work
+jd_ai_engineer,cv_005.docx,2,0.72,2.3,junior,ai_engineer,most must-haves backed by described work
+jd_ai_engineer,cv_006.pdf,2,0.64,1.7,junior,ai_engineer,most must-haves backed by described work
+jd_ai_engineer,cv_007.pdf,0,0.08,3.3,stuffer,ai_engineer,not relevant
+jd_ai_engineer,cv_008.docx,3,1.0,4.9,transferable,ai_engineer,all must-haves backed by described work; experience fits
+jd_ai_engineer,cv_009.pdf,1,0.4,7.8,strong,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_ai_engineer,cv_010.txt,0,0.2,6.2,strong,backend_python,not relevant
+jd_ai_engineer,cv_011.docx,1,0.4,8.2,partial,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_ai_engineer,cv_012.pdf,0,0.22,5.0,partial,backend_python,not relevant
+jd_ai_engineer,cv_013.txt,0,0.2,1.8,junior,backend_python,not relevant
+jd_ai_engineer,cv_014.docx,0,0.2,2.2,junior,backend_python,not relevant
+jd_ai_engineer,cv_015.pdf,0,0.05,4.8,stuffer,backend_python,not relevant
+jd_ai_engineer,cv_016.txt,1,0.4,5.8,transferable,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_ai_engineer,cv_017.docx,0,0.2,8.0,strong,backend_java,not relevant
+jd_ai_engineer,cv_018.pdf,0,0.2,5.1,strong,backend_java,not relevant
+jd_ai_engineer,cv_019.txt,0,0.0,2.0,junior,backend_java,not relevant
+jd_ai_engineer,cv_020.docx,0,0.0,3.5,stuffer,backend_java,not relevant
+jd_ai_engineer,cv_021.pdf,0,0.2,5.2,strong,data_engineer,not relevant
+jd_ai_engineer,cv_022.txt,0,0.2,4.8,strong,data_engineer,not relevant
+jd_ai_engineer,cv_023.docx,0,0.2,8.3,partial,data_engineer,not relevant
+jd_ai_engineer,cv_024.pdf,0,0.12,8.5,partial,data_engineer,not relevant
+jd_ai_engineer,cv_025.txt,0,0.12,1.5,junior,data_engineer,not relevant
+jd_ai_engineer,cv_026.docx,0,0.0,1.3,junior,data_engineer,not relevant
+jd_ai_engineer,cv_027.pdf,0,0.02,4.3,stuffer,data_engineer,not relevant
+jd_ai_engineer,cv_028.txt,0,0.02,6.2,transferable,data_engineer,not relevant
+jd_ai_engineer,cv_029.docx,0,0.0,5.8,strong,frontend_react,not relevant
+jd_ai_engineer,cv_030.pdf,0,0.0,6.2,strong,frontend_react,not relevant
+jd_ai_engineer,cv_031.txt,0,0.0,8.1,partial,frontend_react,not relevant
+jd_ai_engineer,cv_032.docx,0,0.0,5.9,partial,frontend_react,not relevant
+jd_ai_engineer,cv_033.pdf,0,0.0,2.3,junior,frontend_react,not relevant
+jd_ai_engineer,cv_034.txt,0,0.0,2.3,junior,frontend_react,not relevant
+jd_ai_engineer,cv_035.docx,0,0.0,4.9,stuffer,frontend_react,not relevant
+jd_ai_engineer,cv_036.pdf,0,0.0,7.9,transferable,frontend_react,not relevant
+jd_ai_engineer,cv_037.txt,0,0.0,8.9,strong,devops_cloud,not relevant
+jd_ai_engineer,cv_038.docx,0,0.0,4.7,strong,devops_cloud,not relevant
+jd_ai_engineer,cv_039.pdf,0,0.0,7.6,partial,devops_cloud,not relevant
+jd_ai_engineer,cv_040.txt,0,0.0,5.5,partial,devops_cloud,not relevant
+jd_ai_engineer,cv_041.docx,0,0.0,1.5,junior,devops_cloud,not relevant
+jd_ai_engineer,cv_042.pdf,0,0.0,0.9,junior,devops_cloud,not relevant
+jd_ai_engineer,cv_043.txt,0,0.0,4.6,stuffer,devops_cloud,not relevant
+jd_ai_engineer,cv_044.docx,0,0.0,6.3,transferable,devops_cloud,not relevant
+jd_ai_engineer,cv_045.pdf,0,0.2,8.1,strong,qa_automation,not relevant
+jd_ai_engineer,cv_046.txt,0,0.2,5.7,strong,qa_automation,not relevant
+jd_ai_engineer,cv_047.docx,0,0.2,5.0,partial,qa_automation,not relevant
+jd_ai_engineer,cv_048.pdf,0,0.12,8.0,partial,qa_automation,not relevant
+jd_ai_engineer,cv_049.txt,0,0.2,1.7,junior,qa_automation,not relevant
+jd_ai_engineer,cv_050.docx,0,0.2,1.6,junior,qa_automation,not relevant
+jd_ai_engineer,cv_051.txt,0,0.0,5.4,stuffer,qa_automation,not relevant
+jd_ai_engineer,cv_052.txt,0,0.2,6.3,transferable,qa_automation,not relevant
+jd_ai_engineer,cv_053.docx,0,0.2,8.7,strong,data_scientist,not relevant
+jd_ai_engineer,cv_054.pdf,0,0.2,8.6,strong,data_scientist,not relevant
+jd_ai_engineer,cv_055.txt,0,0.12,6.6,partial,data_scientist,not relevant
+jd_ai_engineer,cv_056.docx,0,0.02,4.7,partial,data_scientist,not relevant
+jd_ai_engineer,cv_057.pdf,0,0.2,2.2,junior,data_scientist,not relevant
+jd_ai_engineer,cv_058.txt,0,0.2,1.7,junior,data_scientist,not relevant
+jd_ai_engineer,cv_059.docx,0,0.02,3.0,stuffer,data_scientist,not relevant
+jd_ai_engineer,cv_060.pdf,0,0.2,4.5,transferable,data_scientist,not relevant
+jd_ai_engineer,cv_061.txt,0,0.2,5.7,strong,data_analyst,not relevant
+jd_ai_engineer,cv_062.docx,0,0.2,5.3,strong,data_analyst,not relevant
+jd_ai_engineer,cv_063.pdf,0,0.2,1.2,junior,data_analyst,not relevant
+jd_ai_engineer,cv_064.txt,0,0.02,4.4,stuffer,data_analyst,not relevant
+jd_ai_engineer,cv_009_resent.pdf,1,0.4,7.8,duplicate,backend_python,exact duplicate of cv_009.pdf
+jd_backend_python,cv_001.txt,3,1.0,4.5,strong,ai_engineer,all must-haves backed by described work; experience fits
+jd_backend_python,cv_002.docx,3,1.0,6.9,strong,ai_engineer,all must-haves backed by described work; experience fits
+jd_backend_python,cv_003.pdf,2,0.65,5.6,partial,ai_engineer,most must-haves backed by described work
+jd_backend_python,cv_004.txt,3,1.0,7.8,partial,ai_engineer,all must-haves backed by described work; experience fits
+jd_backend_python,cv_005.docx,2,0.75,2.3,junior,ai_engineer,most must-haves backed by described work
+jd_backend_python,cv_006.pdf,1,0.25,1.7,junior,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_007.pdf,0,0.025,3.3,stuffer,ai_engineer,not relevant
+jd_backend_python,cv_008.docx,2,0.775,4.9,transferable,ai_engineer,most must-haves backed by described work
+jd_backend_python,cv_009.pdf,3,1.0,7.8,strong,backend_python,all must-haves backed by described work; experience fits
+jd_backend_python,cv_010.txt,3,1.0,6.2,strong,backend_python,all must-haves backed by described work; experience fits
+jd_backend_python,cv_011.docx,2,0.775,8.2,partial,backend_python,most must-haves backed by described work
+jd_backend_python,cv_012.pdf,2,0.775,5.0,partial,backend_python,most must-haves backed by described work
+jd_backend_python,cv_013.txt,1,0.75,1.8,junior,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_014.docx,2,0.75,2.2,junior,backend_python,most must-haves backed by described work
+jd_backend_python,cv_015.pdf,1,0.175,4.8,stuffer,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_016.txt,3,1.0,5.8,transferable,backend_python,all must-haves backed by described work; experience fits
+jd_backend_python,cv_017.docx,1,0.5,8.0,strong,backend_java,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_018.pdf,1,0.5,5.1,strong,backend_java,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_019.txt,0,0.05,2.0,junior,backend_java,not relevant
+jd_backend_python,cv_020.docx,0,0.05,3.5,stuffer,backend_java,not relevant
+jd_backend_python,cv_021.pdf,1,0.25,5.2,strong,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_022.txt,1,0.25,4.8,strong,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_023.docx,1,0.25,8.3,partial,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_024.pdf,0,0.15,8.5,partial,data_engineer,not relevant
+jd_backend_python,cv_025.txt,0,0.15,1.5,junior,data_engineer,not relevant
+jd_backend_python,cv_026.docx,0,0.0,1.3,junior,data_engineer,not relevant
+jd_backend_python,cv_027.pdf,0,0.025,4.3,stuffer,data_engineer,not relevant
+jd_backend_python,cv_028.txt,1,0.525,6.2,transferable,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_029.docx,1,0.25,5.8,strong,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_030.pdf,1,0.25,6.2,strong,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_031.txt,1,0.25,8.1,partial,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_032.docx,1,0.25,5.9,partial,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_033.pdf,0,0.0,2.3,junior,frontend_react,not relevant
+jd_backend_python,cv_034.txt,0,0.0,2.3,junior,frontend_react,not relevant
+jd_backend_python,cv_035.docx,0,0.0,4.9,stuffer,frontend_react,not relevant
+jd_backend_python,cv_036.pdf,1,0.5,7.9,transferable,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_037.txt,0,0.0,8.9,strong,devops_cloud,not relevant
+jd_backend_python,cv_038.docx,0,0.0,4.7,strong,devops_cloud,not relevant
+jd_backend_python,cv_039.pdf,0,0.0,7.6,partial,devops_cloud,not relevant
+jd_backend_python,cv_040.txt,0,0.0,5.5,partial,devops_cloud,not relevant
+jd_backend_python,cv_041.docx,0,0.0,1.5,junior,devops_cloud,not relevant
+jd_backend_python,cv_042.pdf,0,0.0,0.9,junior,devops_cloud,not relevant
+jd_backend_python,cv_043.txt,0,0.0,4.6,stuffer,devops_cloud,not relevant
+jd_backend_python,cv_044.docx,0,0.025,6.3,transferable,devops_cloud,not relevant
+jd_backend_python,cv_045.pdf,1,0.25,8.1,strong,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_046.txt,1,0.25,5.7,strong,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_047.docx,1,0.25,5.0,partial,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_048.pdf,0,0.15,8.0,partial,qa_automation,not relevant
+jd_backend_python,cv_049.txt,1,0.25,1.7,junior,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_050.docx,1,0.25,1.6,junior,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_051.txt,0,0.0,5.4,stuffer,qa_automation,not relevant
+jd_backend_python,cv_052.txt,1,0.525,6.3,transferable,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_053.docx,1,0.25,8.7,strong,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_054.pdf,1,0.25,8.6,strong,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_055.txt,0,0.15,6.6,partial,data_scientist,not relevant
+jd_backend_python,cv_056.docx,0,0.025,4.7,partial,data_scientist,not relevant
+jd_backend_python,cv_057.pdf,1,0.25,2.2,junior,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_058.txt,1,0.25,1.7,junior,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_059.docx,0,0.025,3.0,stuffer,data_scientist,not relevant
+jd_backend_python,cv_060.pdf,1,0.25,4.5,transferable,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_061.txt,1,0.25,5.7,strong,data_analyst,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_062.docx,1,0.25,5.3,strong,data_analyst,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_063.pdf,1,0.25,1.2,junior,data_analyst,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_backend_python,cv_064.txt,0,0.025,4.4,stuffer,data_analyst,not relevant
+jd_backend_python,cv_009_resent.pdf,3,1.0,7.8,duplicate,backend_python,exact duplicate of cv_009.pdf
+jd_data_engineer,cv_001.txt,0,0.0,4.5,strong,ai_engineer,not relevant
+jd_data_engineer,cv_002.docx,0,0.0,6.9,strong,ai_engineer,not relevant
+jd_data_engineer,cv_003.pdf,0,0.0,5.6,partial,ai_engineer,not relevant
+jd_data_engineer,cv_004.txt,0,0.0,7.8,partial,ai_engineer,not relevant
+jd_data_engineer,cv_005.docx,0,0.0,2.3,junior,ai_engineer,not relevant
+jd_data_engineer,cv_006.pdf,0,0.0,1.7,junior,ai_engineer,not relevant
+jd_data_engineer,cv_007.pdf,0,0.0,3.3,stuffer,ai_engineer,not relevant
+jd_data_engineer,cv_008.docx,0,0.2,4.9,transferable,ai_engineer,not relevant
+jd_data_engineer,cv_009.pdf,1,0.4,7.8,strong,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_010.txt,1,0.4,6.2,strong,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_011.docx,1,0.4,8.2,partial,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_012.pdf,1,0.4,5.0,partial,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_013.txt,0,0.22,1.8,junior,backend_python,not relevant
+jd_data_engineer,cv_014.docx,0,0.2,2.2,junior,backend_python,not relevant
+jd_data_engineer,cv_015.pdf,0,0.02,4.8,stuffer,backend_python,not relevant
+jd_data_engineer,cv_016.txt,2,0.64,5.8,transferable,backend_python,most must-haves backed by described work
+jd_data_engineer,cv_017.docx,1,0.4,8.0,strong,backend_java,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_018.pdf,1,0.4,5.1,strong,backend_java,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_019.txt,0,0.2,2.0,junior,backend_java,not relevant
+jd_data_engineer,cv_020.docx,0,0.02,3.5,stuffer,backend_java,not relevant
+jd_data_engineer,cv_021.pdf,3,1.0,5.2,strong,data_engineer,all must-haves backed by described work; experience fits
+jd_data_engineer,cv_022.txt,3,1.0,4.8,strong,data_engineer,all must-haves backed by described work; experience fits
+jd_data_engineer,cv_023.docx,2,0.82,8.3,partial,data_engineer,most must-haves backed by described work
+jd_data_engineer,cv_024.pdf,1,0.44,8.5,partial,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_025.txt,2,1.0,1.5,junior,data_engineer,most must-haves backed by described work; below the experience requirement
+jd_data_engineer,cv_026.docx,1,0.96,1.3,junior,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_027.pdf,1,0.16,4.3,stuffer,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_028.txt,3,1.0,6.2,transferable,data_engineer,all must-haves backed by described work; experience fits
+jd_data_engineer,cv_029.docx,0,0.0,5.8,strong,frontend_react,not relevant
+jd_data_engineer,cv_030.pdf,0,0.0,6.2,strong,frontend_react,not relevant
+jd_data_engineer,cv_031.txt,0,0.0,8.1,partial,frontend_react,not relevant
+jd_data_engineer,cv_032.docx,0,0.0,5.9,partial,frontend_react,not relevant
+jd_data_engineer,cv_033.pdf,0,0.0,2.3,junior,frontend_react,not relevant
+jd_data_engineer,cv_034.txt,0,0.0,2.3,junior,frontend_react,not relevant
+jd_data_engineer,cv_035.docx,0,0.0,4.9,stuffer,frontend_react,not relevant
+jd_data_engineer,cv_036.pdf,0,0.22,7.9,transferable,frontend_react,not relevant
+jd_data_engineer,cv_037.txt,0,0.0,8.9,strong,devops_cloud,not relevant
+jd_data_engineer,cv_038.docx,0,0.0,4.7,strong,devops_cloud,not relevant
+jd_data_engineer,cv_039.pdf,0,0.0,7.6,partial,devops_cloud,not relevant
+jd_data_engineer,cv_040.txt,0,0.0,5.5,partial,devops_cloud,not relevant
+jd_data_engineer,cv_041.docx,0,0.0,1.5,junior,devops_cloud,not relevant
+jd_data_engineer,cv_042.pdf,0,0.0,0.9,junior,devops_cloud,not relevant
+jd_data_engineer,cv_043.txt,0,0.0,4.6,stuffer,devops_cloud,not relevant
+jd_data_engineer,cv_044.docx,0,0.0,6.3,transferable,devops_cloud,not relevant
+jd_data_engineer,cv_045.pdf,0,0.0,8.1,strong,qa_automation,not relevant
+jd_data_engineer,cv_046.txt,0,0.0,5.7,strong,qa_automation,not relevant
+jd_data_engineer,cv_047.docx,0,0.0,5.0,partial,qa_automation,not relevant
+jd_data_engineer,cv_048.pdf,0,0.02,8.0,partial,qa_automation,not relevant
+jd_data_engineer,cv_049.txt,0,0.02,1.7,junior,qa_automation,not relevant
+jd_data_engineer,cv_050.docx,0,0.02,1.6,junior,qa_automation,not relevant
+jd_data_engineer,cv_051.txt,0,0.02,5.4,stuffer,qa_automation,not relevant
+jd_data_engineer,cv_052.txt,0,0.2,6.3,transferable,qa_automation,not relevant
+jd_data_engineer,cv_053.docx,1,0.4,8.7,strong,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_054.pdf,1,0.44,8.6,strong,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_055.txt,1,0.44,6.6,partial,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_056.docx,1,0.44,4.7,partial,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_engineer,cv_057.pdf,0,0.06,2.2,junior,data_scientist,not relevant
+jd_data_engineer,cv_058.txt,0,0.16,1.7,junior,data_scientist,not relevant
+jd_data_engineer,cv_059.docx,0,0.06,3.0,stuffer,data_scientist,not relevant
+jd_data_engineer,cv_060.pdf,0,0.2,4.5,transferable,data_scientist,not relevant
+jd_data_engineer,cv_061.txt,0,0.2,5.7,strong,data_analyst,not relevant
+jd_data_engineer,cv_062.docx,0,0.2,5.3,strong,data_analyst,not relevant
+jd_data_engineer,cv_063.pdf,0,0.02,1.2,junior,data_analyst,not relevant
+jd_data_engineer,cv_064.txt,0,0.02,4.4,stuffer,data_analyst,not relevant
+jd_data_engineer,cv_009_resent.pdf,1,0.4,7.8,duplicate,backend_python,exact duplicate of cv_009.pdf
+jd_frontend_react,cv_001.txt,0,0.0,4.5,strong,ai_engineer,not relevant
+jd_frontend_react,cv_002.docx,0,0.0,6.9,strong,ai_engineer,not relevant
+jd_frontend_react,cv_003.pdf,0,0.0,5.6,partial,ai_engineer,not relevant
+jd_frontend_react,cv_004.txt,0,0.0,7.8,partial,ai_engineer,not relevant
+jd_frontend_react,cv_005.docx,0,0.0,2.3,junior,ai_engineer,not relevant
+jd_frontend_react,cv_006.pdf,0,0.0,1.7,junior,ai_engineer,not relevant
+jd_frontend_react,cv_007.pdf,0,0.0,3.3,stuffer,ai_engineer,not relevant
+jd_frontend_react,cv_008.docx,0,0.0,4.9,transferable,ai_engineer,not relevant
+jd_frontend_react,cv_009.pdf,0,0.0,7.8,strong,backend_python,not relevant
+jd_frontend_react,cv_010.txt,0,0.0,6.2,strong,backend_python,not relevant
+jd_frontend_react,cv_011.docx,0,0.0,8.2,partial,backend_python,not relevant
+jd_frontend_react,cv_012.pdf,0,0.0,5.0,partial,backend_python,not relevant
+jd_frontend_react,cv_013.txt,0,0.0,1.8,junior,backend_python,not relevant
+jd_frontend_react,cv_014.docx,0,0.0,2.2,junior,backend_python,not relevant
+jd_frontend_react,cv_015.pdf,0,0.0,4.8,stuffer,backend_python,not relevant
+jd_frontend_react,cv_016.txt,0,0.0,5.8,transferable,backend_python,not relevant
+jd_frontend_react,cv_017.docx,0,0.0,8.0,strong,backend_java,not relevant
+jd_frontend_react,cv_018.pdf,0,0.0,5.1,strong,backend_java,not relevant
+jd_frontend_react,cv_019.txt,0,0.0,2.0,junior,backend_java,not relevant
+jd_frontend_react,cv_020.docx,0,0.0,3.5,stuffer,backend_java,not relevant
+jd_frontend_react,cv_021.pdf,0,0.0,5.2,strong,data_engineer,not relevant
+jd_frontend_react,cv_022.txt,0,0.0,4.8,strong,data_engineer,not relevant
+jd_frontend_react,cv_023.docx,0,0.0,8.3,partial,data_engineer,not relevant
+jd_frontend_react,cv_024.pdf,0,0.0,8.5,partial,data_engineer,not relevant
+jd_frontend_react,cv_025.txt,0,0.0,1.5,junior,data_engineer,not relevant
+jd_frontend_react,cv_026.docx,0,0.0,1.3,junior,data_engineer,not relevant
+jd_frontend_react,cv_027.pdf,0,0.0,4.3,stuffer,data_engineer,not relevant
+jd_frontend_react,cv_028.txt,0,0.0,6.2,transferable,data_engineer,not relevant
+jd_frontend_react,cv_029.docx,3,1.0,5.8,strong,frontend_react,all must-haves backed by described work; experience fits
+jd_frontend_react,cv_030.pdf,3,1.0,6.2,strong,frontend_react,all must-haves backed by described work; experience fits
+jd_frontend_react,cv_031.txt,2,0.7,8.1,partial,frontend_react,most must-haves backed by described work
+jd_frontend_react,cv_032.docx,2,0.7,5.9,partial,frontend_react,most must-haves backed by described work
+jd_frontend_react,cv_033.pdf,3,1.0,2.3,junior,frontend_react,all must-haves backed by described work; experience fits
+jd_frontend_react,cv_034.txt,3,0.867,2.3,junior,frontend_react,all must-haves backed by described work; experience fits
+jd_frontend_react,cv_035.docx,1,0.15,4.9,stuffer,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_frontend_react,cv_036.pdf,3,1.0,7.9,transferable,frontend_react,all must-haves backed by described work; experience fits
+jd_frontend_react,cv_037.txt,0,0.0,8.9,strong,devops_cloud,not relevant
+jd_frontend_react,cv_038.docx,0,0.0,4.7,strong,devops_cloud,not relevant
+jd_frontend_react,cv_039.pdf,0,0.0,7.6,partial,devops_cloud,not relevant
+jd_frontend_react,cv_040.txt,0,0.0,5.5,partial,devops_cloud,not relevant
+jd_frontend_react,cv_041.docx,0,0.0,1.5,junior,devops_cloud,not relevant
+jd_frontend_react,cv_042.pdf,0,0.0,0.9,junior,devops_cloud,not relevant
+jd_frontend_react,cv_043.txt,0,0.0,4.6,stuffer,devops_cloud,not relevant
+jd_frontend_react,cv_044.docx,0,0.0,6.3,transferable,devops_cloud,not relevant
+jd_frontend_react,cv_045.pdf,1,0.333,8.1,strong,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_frontend_react,cv_046.txt,1,0.333,5.7,strong,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_frontend_react,cv_047.docx,1,0.333,5.0,partial,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_frontend_react,cv_048.pdf,1,0.333,8.0,partial,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_frontend_react,cv_049.txt,0,0.0,1.7,junior,qa_automation,not relevant
+jd_frontend_react,cv_050.docx,1,0.333,1.6,junior,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_frontend_react,cv_051.txt,0,0.0,5.4,stuffer,qa_automation,not relevant
+jd_frontend_react,cv_052.txt,0,0.0,6.3,transferable,qa_automation,not relevant
+jd_frontend_react,cv_053.docx,0,0.0,8.7,strong,data_scientist,not relevant
+jd_frontend_react,cv_054.pdf,0,0.0,8.6,strong,data_scientist,not relevant
+jd_frontend_react,cv_055.txt,0,0.0,6.6,partial,data_scientist,not relevant
+jd_frontend_react,cv_056.docx,0,0.0,4.7,partial,data_scientist,not relevant
+jd_frontend_react,cv_057.pdf,0,0.0,2.2,junior,data_scientist,not relevant
+jd_frontend_react,cv_058.txt,0,0.0,1.7,junior,data_scientist,not relevant
+jd_frontend_react,cv_059.docx,0,0.0,3.0,stuffer,data_scientist,not relevant
+jd_frontend_react,cv_060.pdf,0,0.0,4.5,transferable,data_scientist,not relevant
+jd_frontend_react,cv_061.txt,0,0.0,5.7,strong,data_analyst,not relevant
+jd_frontend_react,cv_062.docx,0,0.0,5.3,strong,data_analyst,not relevant
+jd_frontend_react,cv_063.pdf,0,0.0,1.2,junior,data_analyst,not relevant
+jd_frontend_react,cv_064.txt,0,0.0,4.4,stuffer,data_analyst,not relevant
+jd_frontend_react,cv_009_resent.pdf,0,0.0,7.8,duplicate,backend_python,exact duplicate of cv_009.pdf
+jd_devops_cloud,cv_001.txt,1,0.4,4.5,strong,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_002.docx,1,0.4,6.9,strong,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_003.pdf,0,0.24,5.6,partial,ai_engineer,not relevant
+jd_devops_cloud,cv_004.txt,0,0.24,7.8,partial,ai_engineer,not relevant
+jd_devops_cloud,cv_005.docx,0,0.02,2.3,junior,ai_engineer,not relevant
+jd_devops_cloud,cv_006.pdf,1,0.4,1.7,junior,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_007.pdf,0,0.04,3.3,stuffer,ai_engineer,not relevant
+jd_devops_cloud,cv_008.docx,1,0.4,4.9,transferable,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_009.pdf,2,0.6,7.8,strong,backend_python,most must-haves backed by described work
+jd_devops_cloud,cv_010.txt,1,0.32,6.2,strong,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_011.docx,2,0.62,8.2,partial,backend_python,most must-haves backed by described work
+jd_devops_cloud,cv_012.pdf,1,0.42,5.0,partial,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_013.txt,0,0.02,1.8,junior,backend_python,not relevant
+jd_devops_cloud,cv_014.docx,1,0.26,2.2,junior,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_015.pdf,0,0.06,4.8,stuffer,backend_python,not relevant
+jd_devops_cloud,cv_016.txt,0,0.0,5.8,transferable,backend_python,not relevant
+jd_devops_cloud,cv_017.docx,2,0.62,8.0,strong,backend_java,most must-haves backed by described work
+jd_devops_cloud,cv_018.pdf,2,0.62,5.1,strong,backend_java,most must-haves backed by described work
+jd_devops_cloud,cv_019.txt,1,0.48,2.0,junior,backend_java,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_020.docx,0,0.08,3.5,stuffer,backend_java,not relevant
+jd_devops_cloud,cv_021.pdf,0,0.2,5.2,strong,data_engineer,not relevant
+jd_devops_cloud,cv_022.txt,0,0.2,4.8,strong,data_engineer,not relevant
+jd_devops_cloud,cv_023.docx,0,0.02,8.3,partial,data_engineer,not relevant
+jd_devops_cloud,cv_024.pdf,0,0.12,8.5,partial,data_engineer,not relevant
+jd_devops_cloud,cv_025.txt,0,0.2,1.5,junior,data_engineer,not relevant
+jd_devops_cloud,cv_026.docx,0,0.02,1.3,junior,data_engineer,not relevant
+jd_devops_cloud,cv_027.pdf,0,0.02,4.3,stuffer,data_engineer,not relevant
+jd_devops_cloud,cv_028.txt,0,0.04,6.2,transferable,data_engineer,not relevant
+jd_devops_cloud,cv_029.docx,0,0.0,5.8,strong,frontend_react,not relevant
+jd_devops_cloud,cv_030.pdf,0,0.0,6.2,strong,frontend_react,not relevant
+jd_devops_cloud,cv_031.txt,0,0.0,8.1,partial,frontend_react,not relevant
+jd_devops_cloud,cv_032.docx,0,0.0,5.9,partial,frontend_react,not relevant
+jd_devops_cloud,cv_033.pdf,0,0.0,2.3,junior,frontend_react,not relevant
+jd_devops_cloud,cv_034.txt,0,0.0,2.3,junior,frontend_react,not relevant
+jd_devops_cloud,cv_035.docx,0,0.0,4.9,stuffer,frontend_react,not relevant
+jd_devops_cloud,cv_036.pdf,0,0.06,7.9,transferable,frontend_react,not relevant
+jd_devops_cloud,cv_037.txt,3,1.0,8.9,strong,devops_cloud,all must-haves backed by described work; experience fits
+jd_devops_cloud,cv_038.docx,3,1.0,4.7,strong,devops_cloud,all must-haves backed by described work; experience fits
+jd_devops_cloud,cv_039.pdf,2,0.74,7.6,partial,devops_cloud,most must-haves backed by described work
+jd_devops_cloud,cv_040.txt,2,0.82,5.5,partial,devops_cloud,most must-haves backed by described work
+jd_devops_cloud,cv_041.docx,1,0.96,1.5,junior,devops_cloud,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_042.pdf,1,0.88,0.9,junior,devops_cloud,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_043.txt,1,0.16,4.6,stuffer,devops_cloud,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_devops_cloud,cv_044.docx,3,1.0,6.3,transferable,devops_cloud,all must-haves backed by described work; experience fits
+jd_devops_cloud,cv_045.pdf,0,0.2,8.1,strong,qa_automation,not relevant
+jd_devops_cloud,cv_046.txt,0,0.2,5.7,strong,qa_automation,not relevant
+jd_devops_cloud,cv_047.docx,0,0.0,5.0,partial,qa_automation,not relevant
+jd_devops_cloud,cv_048.pdf,0,0.2,8.0,partial,qa_automation,not relevant
+jd_devops_cloud,cv_049.txt,0,0.0,1.7,junior,qa_automation,not relevant
+jd_devops_cloud,cv_050.docx,0,0.0,1.6,junior,qa_automation,not relevant
+jd_devops_cloud,cv_051.txt,0,0.0,5.4,stuffer,qa_automation,not relevant
+jd_devops_cloud,cv_052.txt,0,0.24,6.3,transferable,qa_automation,not relevant
+jd_devops_cloud,cv_053.docx,0,0.2,8.7,strong,data_scientist,not relevant
+jd_devops_cloud,cv_054.pdf,0,0.2,8.6,strong,data_scientist,not relevant
+jd_devops_cloud,cv_055.txt,0,0.2,6.6,partial,data_scientist,not relevant
+jd_devops_cloud,cv_056.docx,0,0.2,4.7,partial,data_scientist,not relevant
+jd_devops_cloud,cv_057.pdf,0,0.2,2.2,junior,data_scientist,not relevant
+jd_devops_cloud,cv_058.txt,0,0.16,1.7,junior,data_scientist,not relevant
+jd_devops_cloud,cv_059.docx,0,0.0,3.0,stuffer,data_scientist,not relevant
+jd_devops_cloud,cv_060.pdf,0,0.0,4.5,transferable,data_scientist,not relevant
+jd_devops_cloud,cv_061.txt,0,0.0,5.7,strong,data_analyst,not relevant
+jd_devops_cloud,cv_062.docx,0,0.0,5.3,strong,data_analyst,not relevant
+jd_devops_cloud,cv_063.pdf,0,0.0,1.2,junior,data_analyst,not relevant
+jd_devops_cloud,cv_064.txt,0,0.0,4.4,stuffer,data_analyst,not relevant
+jd_devops_cloud,cv_009_resent.pdf,2,0.6,7.8,duplicate,backend_python,exact duplicate of cv_009.pdf
+jd_qa_automation,cv_001.txt,1,0.25,4.5,strong,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_002.docx,1,0.25,6.9,strong,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_003.pdf,1,0.25,5.6,partial,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_004.txt,1,0.25,7.8,partial,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_005.docx,1,0.25,2.3,junior,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_006.pdf,1,0.25,1.7,junior,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_007.pdf,0,0.025,3.3,stuffer,ai_engineer,not relevant
+jd_qa_automation,cv_008.docx,1,0.25,4.9,transferable,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_009.pdf,1,0.5,7.8,strong,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_010.txt,1,0.5,6.2,strong,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_011.docx,1,0.5,8.2,partial,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_012.pdf,0,0.025,5.0,partial,backend_python,not relevant
+jd_qa_automation,cv_013.txt,1,0.25,1.8,junior,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_014.docx,1,0.25,2.2,junior,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_015.pdf,0,0.062,4.8,stuffer,backend_python,not relevant
+jd_qa_automation,cv_016.txt,1,0.25,5.8,transferable,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_017.docx,1,0.5,8.0,strong,backend_java,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_018.pdf,1,0.5,5.1,strong,backend_java,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_019.txt,1,0.5,2.0,junior,backend_java,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_020.docx,0,0.087,3.5,stuffer,backend_java,not relevant
+jd_qa_automation,cv_021.pdf,1,0.25,5.2,strong,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_022.txt,1,0.25,4.8,strong,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_023.docx,1,0.25,8.3,partial,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_024.pdf,0,0.15,8.5,partial,data_engineer,not relevant
+jd_qa_automation,cv_025.txt,0,0.15,1.5,junior,data_engineer,not relevant
+jd_qa_automation,cv_026.docx,0,0.0,1.3,junior,data_engineer,not relevant
+jd_qa_automation,cv_027.pdf,0,0.025,4.3,stuffer,data_engineer,not relevant
+jd_qa_automation,cv_028.txt,0,0.025,6.2,transferable,data_engineer,not relevant
+jd_qa_automation,cv_029.docx,1,0.25,5.8,strong,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_030.pdf,1,0.25,6.2,strong,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_031.txt,1,0.25,8.1,partial,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_032.docx,0,0.15,5.9,partial,frontend_react,not relevant
+jd_qa_automation,cv_033.pdf,1,0.25,2.3,junior,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_034.txt,0,0.15,2.3,junior,frontend_react,not relevant
+jd_qa_automation,cv_035.docx,0,0.025,4.9,stuffer,frontend_react,not relevant
+jd_qa_automation,cv_036.pdf,1,0.275,7.9,transferable,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_037.txt,1,0.25,8.9,strong,devops_cloud,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_038.docx,1,0.25,4.7,strong,devops_cloud,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_039.pdf,1,0.25,7.6,partial,devops_cloud,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_040.txt,1,0.25,5.5,partial,devops_cloud,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_041.docx,0,0.2,1.5,junior,devops_cloud,not relevant
+jd_qa_automation,cv_042.pdf,1,0.25,0.9,junior,devops_cloud,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_043.txt,0,0.062,4.6,stuffer,devops_cloud,not relevant
+jd_qa_automation,cv_044.docx,1,0.5,6.3,transferable,devops_cloud,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_045.pdf,3,1.0,8.1,strong,qa_automation,all must-haves backed by described work; experience fits
+jd_qa_automation,cv_046.txt,3,1.0,5.7,strong,qa_automation,all must-haves backed by described work; experience fits
+jd_qa_automation,cv_047.docx,2,0.75,5.0,partial,qa_automation,most must-haves backed by described work
+jd_qa_automation,cv_048.pdf,2,0.775,8.0,partial,qa_automation,most must-haves backed by described work
+jd_qa_automation,cv_049.txt,2,0.75,1.7,junior,qa_automation,most must-haves backed by described work
+jd_qa_automation,cv_050.docx,2,0.75,1.6,junior,qa_automation,most must-haves backed by described work
+jd_qa_automation,cv_051.txt,0,0.113,5.4,stuffer,qa_automation,not relevant
+jd_qa_automation,cv_052.txt,3,1.0,6.3,transferable,qa_automation,all must-haves backed by described work; experience fits
+jd_qa_automation,cv_053.docx,1,0.25,8.7,strong,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_054.pdf,1,0.25,8.6,strong,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_055.txt,0,0.15,6.6,partial,data_scientist,not relevant
+jd_qa_automation,cv_056.docx,0,0.025,4.7,partial,data_scientist,not relevant
+jd_qa_automation,cv_057.pdf,1,0.25,2.2,junior,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_058.txt,1,0.25,1.7,junior,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_059.docx,0,0.025,3.0,stuffer,data_scientist,not relevant
+jd_qa_automation,cv_060.pdf,1,0.25,4.5,transferable,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_061.txt,1,0.25,5.7,strong,data_analyst,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_062.docx,1,0.25,5.3,strong,data_analyst,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_063.pdf,1,0.25,1.2,junior,data_analyst,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_qa_automation,cv_064.txt,0,0.025,4.4,stuffer,data_analyst,not relevant
+jd_qa_automation,cv_009_resent.pdf,1,0.5,7.8,duplicate,backend_python,exact duplicate of cv_009.pdf
+jd_data_scientist,cv_001.txt,1,0.275,4.5,strong,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_002.docx,1,0.4,6.9,strong,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_003.pdf,1,0.4,5.6,partial,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_004.txt,1,0.4,7.8,partial,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_005.docx,1,0.275,2.3,junior,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_006.pdf,1,0.25,1.7,junior,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_007.pdf,0,0.087,3.3,stuffer,ai_engineer,not relevant
+jd_data_scientist,cv_008.docx,1,0.25,4.9,transferable,ai_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_009.pdf,1,0.5,7.8,strong,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_010.txt,1,0.5,6.2,strong,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_011.docx,1,0.5,8.2,partial,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_012.pdf,1,0.275,5.0,partial,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_013.txt,1,0.5,1.8,junior,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_014.docx,1,0.25,2.2,junior,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_015.pdf,0,0.062,4.8,stuffer,backend_python,not relevant
+jd_data_scientist,cv_016.txt,1,0.5,5.8,transferable,backend_python,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_017.docx,1,0.25,8.0,strong,backend_java,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_018.pdf,1,0.25,5.1,strong,backend_java,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_019.txt,0,0.0,2.0,junior,backend_java,not relevant
+jd_data_scientist,cv_020.docx,0,0.0,3.5,stuffer,backend_java,not relevant
+jd_data_scientist,cv_021.pdf,1,0.5,5.2,strong,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_022.txt,1,0.5,4.8,strong,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_023.docx,1,0.5,8.3,partial,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_024.pdf,1,0.4,8.5,partial,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_025.txt,1,0.4,1.5,junior,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_026.docx,1,0.25,1.3,junior,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_027.pdf,0,0.05,4.3,stuffer,data_engineer,not relevant
+jd_data_scientist,cv_028.txt,1,0.275,6.2,transferable,data_engineer,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_029.docx,0,0.0,5.8,strong,frontend_react,not relevant
+jd_data_scientist,cv_030.pdf,0,0.0,6.2,strong,frontend_react,not relevant
+jd_data_scientist,cv_031.txt,0,0.0,8.1,partial,frontend_react,not relevant
+jd_data_scientist,cv_032.docx,0,0.0,5.9,partial,frontend_react,not relevant
+jd_data_scientist,cv_033.pdf,0,0.0,2.3,junior,frontend_react,not relevant
+jd_data_scientist,cv_034.txt,0,0.0,2.3,junior,frontend_react,not relevant
+jd_data_scientist,cv_035.docx,0,0.0,4.9,stuffer,frontend_react,not relevant
+jd_data_scientist,cv_036.pdf,1,0.25,7.9,transferable,frontend_react,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_037.txt,0,0.0,8.9,strong,devops_cloud,not relevant
+jd_data_scientist,cv_038.docx,0,0.0,4.7,strong,devops_cloud,not relevant
+jd_data_scientist,cv_039.pdf,0,0.0,7.6,partial,devops_cloud,not relevant
+jd_data_scientist,cv_040.txt,0,0.0,5.5,partial,devops_cloud,not relevant
+jd_data_scientist,cv_041.docx,0,0.0,1.5,junior,devops_cloud,not relevant
+jd_data_scientist,cv_042.pdf,0,0.0,0.9,junior,devops_cloud,not relevant
+jd_data_scientist,cv_043.txt,0,0.0,4.6,stuffer,devops_cloud,not relevant
+jd_data_scientist,cv_044.docx,0,0.0,6.3,transferable,devops_cloud,not relevant
+jd_data_scientist,cv_045.pdf,1,0.25,8.1,strong,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_046.txt,1,0.25,5.7,strong,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_047.docx,1,0.25,5.0,partial,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_048.pdf,0,0.175,8.0,partial,qa_automation,not relevant
+jd_data_scientist,cv_049.txt,1,0.275,1.7,junior,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_050.docx,1,0.275,1.6,junior,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_051.txt,0,0.025,5.4,stuffer,qa_automation,not relevant
+jd_data_scientist,cv_052.txt,1,0.25,6.3,transferable,qa_automation,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_053.docx,3,1.0,8.7,strong,data_scientist,all must-haves backed by described work; experience fits
+jd_data_scientist,cv_054.pdf,3,1.0,8.6,strong,data_scientist,all must-haves backed by described work; experience fits
+jd_data_scientist,cv_055.txt,2,0.675,6.6,partial,data_scientist,most must-haves backed by described work
+jd_data_scientist,cv_056.docx,2,0.775,4.7,partial,data_scientist,most must-haves backed by described work
+jd_data_scientist,cv_057.pdf,1,0.525,2.2,junior,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_058.txt,2,0.7,1.7,junior,data_scientist,most must-haves backed by described work
+jd_data_scientist,cv_059.docx,1,0.175,3.0,stuffer,data_scientist,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_060.pdf,3,1.0,4.5,transferable,data_scientist,all must-haves backed by described work; experience fits
+jd_data_scientist,cv_061.txt,1,0.55,5.7,strong,data_analyst,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_062.docx,1,0.525,5.3,strong,data_analyst,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_063.pdf,1,0.325,1.2,junior,data_analyst,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_064.txt,1,0.1,4.4,stuffer,data_analyst,"some relevant evidence, or must-haves only listed / weakly claimed"
+jd_data_scientist,cv_009_resent.pdf,1,0.5,7.8,duplicate,backend_python,exact duplicate of cv_009.pdf

@@ -1,0 +1,20 @@
+DevOps / Cloud Engineer
+
+About the role
+Own the platform that 30 product teams deploy to.
+
+Must have
+- AWS, Azure or GCP
+- Kubernetes (EKS, AKS or GKE)
+- Infrastructure as code with Terraform
+- CI/CD pipelines (Jenkins, GitHub Actions or GitLab CI)
+- Docker
+- 4+ years of infrastructure or platform engineering experience
+
+Nice to have
+- Prometheus and Grafana monitoring
+- Linux and Bash scripting
+- On-call and incident response
+
+Logistics
+- Location: Chennai (Hybrid)

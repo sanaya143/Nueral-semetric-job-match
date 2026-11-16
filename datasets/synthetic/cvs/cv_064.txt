@@ -1,0 +1,27 @@
+Aman Chatterjee
+Data Analyst | Noida
+Email: aman.chatterjee@example.com | Phone: +91 90000 51900 | linkedin.com/in/example-cv_064
+
+Summary
+Passionate Data Analyst with expertise in Excel, SQL, Power BI, Tableau, Data Analysis, Python. Results-driven team player and quick learner with excellent communication skills.
+
+Experience
+
+Data Analyst | Lotusgrid Fintech | Jan 2024 - Present
+- Responsible for supporting the team on data analysis tasks
+- Worked on various POC projects
+- Exposure to Excel and reports
+
+Data Analyst | Saffronlane Payments | May 2022 - Dec 2023
+- Part of the team handling client requirements and documentation
+- Attended trainings on Statistics and Python
+- Involved in daily stand-ups and status reporting
+
+Skills
+Excel, SQL, Power BI, Tableau, Data Analysis, Python, Statistics, Machine Learning
+
+Education
+M.Tech in Data Science | Konkan Technical University | 2021
+
+Preferences
+Preferred location: Noida | Work mode: Hybrid | Notice period: Immediate

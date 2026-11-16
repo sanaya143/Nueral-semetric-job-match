@@ -1,0 +1,47 @@
+Sneha Reddy
+Software Engineer (Backend) | Kochi
+Email: sneha.reddy@example.com | Phone: +91 90000 98727 | linkedin.com/in/example-cv_009
+
+Summary
+Software Engineer (Backend) with 7.8 years of experience in Python backend services and APIs.
+
+Experience
+
+Software Engineer (Backend) | Tesserane Logistics | May 2026 - Present
+- Developed Python Flask services that send UPI payment notifications to 1.5M users
+- Built Django REST Framework services for a lending workflow used by 40 branches
+- Optimised PostgreSQL queries and indexes, cutting p95 latency from 900 ms to 180 ms
+- Migrated a monolith to microservices communicating over Kafka
+Tech stack: Python, Django, Flask, PostgreSQL, Kafka, Redis
+
+Backend Engineer | Vantaloom Learning | Jun 2020 - Apr 2026
+- Introduced Redis caching for account lookups, reducing database load by 60%
+- Implemented OAuth2 and JWT authentication for partner APIs
+- Wrote pytest suites in Python raising test coverage from 40% to 85%
+- Containerised services with Docker and deployed them to production on AWS ECS
+Tech stack: Python, Redis, Docker, AWS, pytest, MySQL
+
+Python Developer | Peregrine Ledger Labs | Nov 2018 - May 2020
+- Set up CI/CD with GitHub Actions for 12 services
+- Designed REST APIs in FastAPI for a payments reconciliation platform handling 2M transactions a day
+Tech stack: FastAPI, pytest, MySQL
+
+Skills
+MongoDB, Redis, Git, Python, REST APIs, AWS, Microservices, PostgreSQL, Flask, Django
+
+Education
+B.E. in Computer Engineering | Northgate College of Engineering | 2017
+
+Preferences
+Preferred location: Kochi | Work mode: Hybrid | Notice period: Immediate
+
+Personal Details
+Date of Birth: 14/08/1988
+Gender: Female
+Marital Status: Married
+Religion: Christian
+Category: OBC
+Nationality: Indian
+
+Declaration
+I hereby declare that the above information is true to the best of my knowledge.

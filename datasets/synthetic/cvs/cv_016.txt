@@ -1,0 +1,29 @@
+Riya D'Souza
+Big Data Engineer | Kochi
+Email: riya.dsouza@example.com | Phone: +91 90000 76247 | linkedin.com/in/example-cv_016
+
+Summary
+Big Data Engineer with 5.8 years of experience in batch and streaming data pipelines.
+
+Experience
+
+Big Data Engineer | Copperfern Infotech | Aug 2021 - Present
+- Developed Python services that expose pipeline results through FastAPI endpoints used by the finance team
+- Designed the PostgreSQL schema for ledger data and tuned slow queries
+- Built a small Flask admin service for reconciliation exceptions
+- Rolled the reporting API out to production behind the company API gateway
+Tech stack: Python, SQL, FastAPI, Flask, PostgreSQL
+
+Data Engineer | Harborpine Insurance Tech | Dec 2020 - Jul 2021
+- Wrote complex SQL queries with window functions for revenue attribution
+- Built Apache Spark batch pipelines processing 4 TB of clickstream data daily
+Tech stack: SQL, Apache Spark
+
+Skills
+ETL, Data Warehousing, Python, Kafka, Databricks, Spark, Hadoop, dbt
+
+Education
+B.E. in Information Technology | Deccan Institute of Technology | 2020
+
+Preferences
+Preferred location: Kochi | Work mode: Onsite | Notice period: 45 days

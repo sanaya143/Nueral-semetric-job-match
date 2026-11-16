@@ -1,0 +1,34 @@
+Harish Pillai
+Site Reliability Engineer | Hyderabad
+Email: harish.pillai@example.com | Phone: +91 90000 81959 | linkedin.com/in/example-cv_040
+
+Summary
+Site Reliability Engineer with 5.5 years of experience in cloud infrastructure, Kubernetes and delivery pipelines.
+
+Experience
+
+Site Reliability Engineer | Vantaloom Learning | Apr 2026 - Present
+- Migrated workloads from on-prem to Azure using Azure DevOps pipelines
+- Provisioned AWS infrastructure with Terraform modules across three environments
+- Containerised legacy Java applications with Docker
+Tech stack: AWS, Terraform, Docker, Azure, Grafana, GitLab CI
+
+DevOps Engineer | Junipero Mobility | Apr 2023 - Mar 2026
+- Automated Linux server patching with Ansible and Bash scripts
+- Built CI/CD pipelines in GitLab CI that cut release time from 2 days to 30 minutes
+- Implemented Jenkins pipelines for 25 repositories
+Tech stack: Terraform, GitLab CI, Jenkins, Linux, Bash, Docker
+
+Cloud Engineer | Peregrine Ledger Labs | Mar 2021 - Mar 2023
+- Led incident response and the on-call rotation, reducing MTTR by 50%
+- Set up Prometheus and Grafana monitoring with alerting, holding 99.95% uptime
+Tech stack: Prometheus, Grafana, Terraform, Docker
+
+Skills
+Prometheus, Cloud Computing, DevOps, Docker, Jenkins, GCP, Azure, CI/CD, Ansible, Kubernetes
+
+Education
+B.Sc in Statistics | Kaveri School of Computing | 2021
+
+Preferences
+Preferred location: Hyderabad | Work mode: Onsite | Notice period: Immediate
