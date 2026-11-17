@@ -31,8 +31,8 @@ from nsm.models import LlmCall
 # Billing is on actual tokens; the cap bounds the worst case each budget check reserves.
 MAX_TOKENS = {"extract": 2000, "escalate": 800, "jd": 1500, "verify": 700, "deep": 1000, "report": 400,
               "search": 300}
-# Hidden reasoning ("thinking") is billed as output tokens. Claude Haiku 5.5 and Sonnet 5.5 think by
-# default (effort medium / high) unless told not to, and every task here is bounded, schema-checked
+# Hidden reasoning ("thinking") is billed as output tokens. Many models think by default unless told
+# not to, and every task here is bounded, schema-checked
 # labelling, so thinking is off for all of them (D-024). None = off; a string sets an effort level.
 EFFORT: dict[str, str | None] = {t: None for t in MAX_TOKENS}
 THINKING_DEFAULT_OFF = True
@@ -75,7 +75,9 @@ class Gateway:
         return self.s.llm_enabled
 
     def model_for(self, task: str, bulk: bool = False) -> str:
-        model = getattr(self.s, f"model_{task}", None) or self.s.model_extract
+        model = self.s.model_for_task(task)
+        if not model:
+            raise GatewayUnavailable(f"no model configured for task '{task}' (set NSM_MODEL_SMALL / NSM_MODEL_LARGE)")
         if bulk and self.s.use_batch_variants and not model.endswith(":batch"):
             model += ":batch"
         return model
@@ -84,7 +86,8 @@ class Gateway:
     def client(self) -> OpenRouterClient:
         if self._client is None:
             allow = [p.strip() for p in self.s.provider_allowlist.split(",")]
-            self._client = OpenRouterClient(self.s.openrouter_api_key, self.s.openrouter_base_url, allow)
+            self._client = OpenRouterClient(self.s.openrouter_api_key, self.s.openrouter_base_url, allow,
+                                            cache_control=self.s.explicit_cache_control)
         return self._client
 
     # ------------------------------------------------------------------ budgets
@@ -109,7 +112,7 @@ class Gateway:
             raise BudgetExceeded(f"per-run cap ${self.s.cap_per_run_usd:.2f} reached")
         if candidate_id and task in CV_TASKS and \
                 self.spent(session, candidate_id=candidate_id) + est > self.s.cap_per_cv_hard_usd:
-            # $0.003/CV is an average target; one CV may need extract + a Sonnet escalation (~$0.012 worst
+            # $0.003/CV is an average target; one CV may need extract + a large-model escalation (~$0.012 worst
             # case, ~$0.023 if the model refuses thinking-off and needs the reserve).
             raise BudgetExceeded(f"per-CV hard cap ${self.s.cap_per_cv_hard_usd:.3f} reached for {candidate_id}")
 
@@ -166,7 +169,8 @@ class Gateway:
 
     @property
     def embedding_model(self) -> str:
-        if self.s.embedding_mode == "openrouter" and self.s.openrouter_api_key:
+        # API embeddings need a key and a chosen model (NSM_EMBEDDING_MODEL); otherwise use local ones.
+        if self.s.embedding_mode == "openrouter" and self.s.openrouter_api_key and self.s.embedding_model:
             return self.s.embedding_model
         return LOCAL_MODEL_NAME
 

@@ -55,8 +55,9 @@ def _parse_json(content: str) -> dict:
 
 class OpenRouterClient:
     def __init__(self, api_key: str, base_url: str, provider_allowlist: list[str] | None = None,
-                 timeout: float = 90.0, retries: int = 2):
+                 timeout: float = 90.0, retries: int = 2, cache_control: bool = False):
         self.api_key = api_key
+        self.cache_control = cache_control
         self.base_url = base_url.rstrip("/")
         self.allowlist = [p for p in (provider_allowlist or []) if p]
         self.timeout = timeout
@@ -93,7 +94,7 @@ class OpenRouterClient:
     def chat_json(self, model: str, system: str, user: str, schema: dict, schema_name: str,
                   max_tokens: int, effort: str | None) -> tuple[dict, Usage]:
         sys_content: Any = system
-        if model.startswith("anthropic/"):
+        if self.cache_control:
             # Stable prefix (instructions + taxonomy/rubric) marked cacheable. Prompts below the
             # provider's minimum cacheable length are simply processed uncached.
             sys_content = [{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}]
@@ -106,8 +107,8 @@ class OpenRouterClient:
             "provider": self._provider_prefs(),
             "usage": {"include": True},
         }
-        # Claude Haiku 5.5 / Sonnet 5.5 think by default when nothing is sent, billed as output tokens,
-        # so "off" is always explicit. Claude rejects effort "none"; `enabled: false` maps to thinking off.
+        # Many models think by default when nothing is sent, billed as output tokens, so "off" is always
+        # explicit. Some providers reject effort "none"; `enabled: false` maps to thinking off.
         body["reasoning"] = {"effort": effort, "exclude": True} if effort else {"enabled": False}
         try:
             data, latency = self._post("/chat/completions", body)

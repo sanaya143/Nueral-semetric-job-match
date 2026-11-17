@@ -14,6 +14,16 @@ os.environ["NSM_LLM_MODE"] = "offline"
 os.environ["NSM_EMBEDDING_MODE"] = "local"
 os.environ["NSM_OPENROUTER_API_KEY"] = ""
 os.environ["NSM_RERANK_MODE"] = "none"
+os.environ["NSM_ALLOWED_HOSTS"] = "127.0.0.1,localhost,testserver"
+os.environ["NSM_MODEL_SMALL"] = "test/small-model"
+os.environ["NSM_MODEL_LARGE"] = "test/large-model"
+os.environ["NSM_AUTH_MODE"] = "none"
+# Limits are switched off for the suite (it makes many requests quickly); test_production.py turns them on.
+os.environ["NSM_RATE_LIMIT_PER_MINUTE"] = "0"
+os.environ["NSM_WRITE_RATE_LIMIT_PER_MINUTE"] = "0"
+os.environ["NSM_DAILY_UPLOAD_QUOTA"] = "0"
+os.environ["NSM_DAILY_MATCH_RUN_QUOTA"] = "0"
+os.environ["NSM_MODEL_PRICES"] = '{"test/small-model": [0.10, 0.50, 0.01], "test/large-model": [2.0, 10.0, 0.20]}'
 
 from nsm.config import reset_settings_cache  # noqa: E402
 from nsm.db import init_db, reset_engine  # noqa: E402
@@ -25,6 +35,16 @@ from nsm.gateway.clients import Usage  # noqa: E402
 def _isolated_storage(tmp_path_factory):
     d = tmp_path_factory.mktemp("nsm-data")
     os.environ["NSM_DATA_DIR"] = str(d)
+    # Run the same suite on PostgreSQL by setting NSM_TEST_DATABASE_URL to an EMPTY test database.
+    pg = os.environ.get("NSM_TEST_DATABASE_URL", "")
+    if pg:
+        from sqlalchemy import create_engine, text
+
+        eng = create_engine(pg)
+        with eng.begin() as c:
+            c.execute(text("DROP SCHEMA public CASCADE; CREATE SCHEMA public"))
+        eng.dispose()
+    os.environ["NSM_DATABASE_URL"] = pg
     reset_settings_cache()
     reset_engine()
     reset_gateway()

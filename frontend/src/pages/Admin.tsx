@@ -5,7 +5,7 @@ import { Card, Empty, ErrorBox, Loading, fmtDate, usd } from "../ui";
 
 interface Config {
   llm_mode: string; llm_enabled: boolean; api_key_configured: boolean; embedding_model: string; rerank_enabled: boolean;
-  models: Record<string, string>; caps: Record<string, number>; funnel: Record<string, number>;
+  models: Record<string, string>; missing_models: string[]; caps: Record<string, number>; funnel: Record<string, number>;
   storage: { database: string; data_dir: string };
 }
 interface Costs {
@@ -53,12 +53,15 @@ export default function Admin() {
           <Card title="Mode and models">
             <div className="small stack" style={{ gap: 4 }}>
               <div>LLM mode: <b>{c.llm_mode}</b> {c.llm_enabled ? <span className="badge b-accent">active</span> :
-                <span className="badge b-muted">{c.llm_mode === "openrouter" && !c.api_key_configured ? "no API key set" : "no model calls, $0"}</span>}</div>
+                <span className="badge b-muted">{c.llm_mode !== "openrouter" ? "no model calls, $0"
+                  : !c.api_key_configured ? "no API key set" : "models not chosen"}</span>}</div>
               <div>Embeddings: <span className="mono">{c.embedding_model}</span></div>
               <div>Cross-encoder rerank: {c.rerank_enabled ? "on" : "off (blended rule-based rerank)"}</div>
               <hr />
               {Object.entries(c.models).map(([task, m]) => <div key={task}>{task}: <span className="mono">{m}</span></div>)}
-              {!c.llm_enabled && <div className="muted">Models are listed for reference; none is called in offline mode.</div>}
+              {c.llm_mode === "openrouter" && c.missing_models?.length > 0 &&
+                <div className="muted">Set <span className="mono">NSM_MODEL_SMALL</span> and <span className="mono">NSM_MODEL_LARGE</span> in <span className="mono">.env</span> to any OpenRouter model IDs.</div>}
+              {!c.llm_enabled && c.llm_mode !== "openrouter" && <div className="muted">No model is called in offline mode.</div>}
             </div>
           </Card>
           <Card title="Funnel and storage">

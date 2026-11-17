@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { del, prefs } from "../api";
+import { authHeaders, del, prefs } from "../api";
 import { useApi } from "../hooks";
 import { Card, Empty, ErrorBox, Flags, LevelBadge, Loading, Quote } from "../ui";
 import { blindName, type CandRow } from "./Candidates";
@@ -43,7 +43,7 @@ export default function CandidateProfile() {
 
   const download = async () => {
     try {
-      const r = await fetch(`/api/v1/candidates/${cid}/file`, { headers: { "X-Tenant-ID": prefs.tenant() } });
+      const r = await fetch(`/api/v1/candidates/${cid}/file`, { headers: authHeaders() });
       if (!r.ok) throw new Error(`Download failed (${r.status})`);
       const url = URL.createObjectURL(await r.blob());
       const a = document.createElement("a");

@@ -2,7 +2,7 @@
   "mode": "offline",
   "cvs": 64,
   "jds": 7,
-  "ingest_seconds": 2.52,
+  "ingest_seconds": 1.93,
   "summary": {
     "engine": {
       "ndcg@10": 0.974,
@@ -31,7 +31,7 @@
       "jd": "jd_ai_engineer",
       "title": "AI Engineer - RAG Platform",
       "relevant": 6,
-      "run_seconds": 0.078,
+      "run_seconds": 0.099,
       "run_cost_usd": 0.0,
       "systems": {
         "engine": {
@@ -64,7 +64,7 @@
       "jd": "jd_backend_python",
       "title": "Python Backend Engineer - Payments",
       "relevant": 12,
-      "run_seconds": 0.058,
+      "run_seconds": 0.073,
       "run_cost_usd": 0.0,
       "systems": {
         "engine": {
@@ -97,7 +97,7 @@
       "jd": "jd_data_engineer",
       "title": "Data Engineer",
       "relevant": 6,
-      "run_seconds": 0.061,
+      "run_seconds": 0.073,
       "run_cost_usd": 0.0,
       "systems": {
         "engine": {
@@ -130,7 +130,7 @@
       "jd": "jd_frontend_react",
       "title": "React Frontend Engineer",
       "relevant": 7,
-      "run_seconds": 0.058,
+      "run_seconds": 0.059,
       "run_cost_usd": 0.0,
       "systems": {
         "engine": {
@@ -163,7 +163,7 @@
       "jd": "jd_devops_cloud",
       "title": "DevOps / Cloud Engineer",
       "relevant": 9,
-      "run_seconds": 0.062,
+      "run_seconds": 0.057,
       "run_cost_usd": 0.0,
       "systems": {
         "engine": {
@@ -196,7 +196,7 @@
       "jd": "jd_qa_automation",
       "title": "QA Automation Engineer",
       "relevant": 7,
-      "run_seconds": 0.053,
+      "run_seconds": 0.054,
       "run_cost_usd": 0.0,
       "systems": {
         "engine": {

@@ -28,19 +28,30 @@ export default function Dashboard() {
       </div>
 
       <div className="grid cols-4">
-        <div className="card stat"><div className="label">Candidates ready</div>
+        <Link to="/candidates?status=ready" className="card stat stat-link" title="Show ready candidates">
+          <div className="label">Candidates ready</div>
           <div className="value">{data.candidates.ready ?? 0}</div>
-          <div className="small muted">{data.candidates_total} total
-            {data.candidates.processing ? ` · ${data.candidates.processing} processing` : ""}
-            {data.candidates.duplicate ? ` · ${data.candidates.duplicate} duplicate` : ""}
-            {data.candidates.failed ? ` · ${data.candidates.failed} failed` : ""}</div></div>
-        <div className="card stat"><div className="label">Jobs</div><div className="value">{data.jobs}</div></div>
-        <div className="card stat"><div className="label">Match runs</div><div className="value">{data.runs}</div></div>
-        <div className="card stat"><div className="label">Model spend this month</div>
+        </Link>
+        <Link to="/candidates" className="card stat stat-link" title="Show all candidates">
+          <div className="label">Total profiles</div>
+          <div className="value">{data.candidates_total}</div>
+          <div className="small muted">
+            {(["processing", "duplicate", "failed"] as const).filter((k) => data.candidates[k]).map((k) => (
+              <span key={k} style={{ marginRight: 8 }}>{data.candidates[k]} {k}</span>
+            ))}
+          </div>
+        </Link>
+        <Link to="/jobs" className="card stat stat-link" title="Show jobs">
+          <div className="label">Jobs</div><div className="value">{data.jobs}</div>
+          <div className="small muted">{data.runs} match runs</div>
+        </Link>
+        <Link to="/admin" className="card stat stat-link" title="Show costs and audit">
+          <div className="label">Model spend this month</div>
           <div className="value">{usd(data.spend_month_usd)}</div>
           <div className={`bar ${data.spend_alert ? "warn" : "good"}`} style={{ marginTop: 6 }}>
             <i style={{ width: `${Math.max(1, Math.min(100, spendPct))}%` }} /></div>
-          <div className="small muted">cap {usd(data.cap_monthly_usd)} / month</div></div>
+          <div className="small muted">cap {usd(data.cap_monthly_usd)} / month</div>
+        </Link>
       </div>
 
       <Card title="Recent match runs">

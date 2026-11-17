@@ -36,8 +36,8 @@ OUT = ROOT / "docs" / "eval"
 SEARCHES = ["python developer who has shipped RAG to production in Bengaluru",
             "data engineer with Spark and Airflow, 3+ years",
             "frontend engineer React TypeScript, remote"]
-CACHE_MIN = 512          # minimum cacheable prefix, Claude Haiku 5.5 / Sonnet 5.5 (prompt-caching docs)
-THINKING_FLOOR = 1024    # OpenRouter's minimum Anthropic reasoning budget
+CACHE_MIN = 512          # typical minimum cacheable prefix; check your provider's prompt-caching docs
+THINKING_FLOOR = 1024    # typical minimum reasoning budget when a model refuses thinking-off
 
 UNIT_RE = re.compile(r'<unit id="([^"]+)"([^>]*)>\n(.*?)\n</unit>', re.S)
 KIND_RE = re.compile(r'kind="([^"]*)"')
@@ -137,9 +137,12 @@ def main() -> int:
     args = ap.parse_args()
     os.environ["NSM_DATA_DIR"] = tempfile.mkdtemp(prefix="nsm-tokens-")
     os.environ.update(NSM_LLM_MODE="offline", NSM_EMBEDDING_MODE="local", NSM_RERANK_MODE="none")
+    # Profile the models set in .env; placeholders if none are chosen yet (costs then use the conservative price).
+    os.environ.setdefault("NSM_MODEL_SMALL", "small-model")
+    os.environ.setdefault("NSM_MODEL_LARGE", "large-model")
 
     import nsm.gateway as gwmod
-    from nsm.config import get_settings
+    from nsm.config import LARGE_TASKS, get_settings
     from nsm.db import init_db, session_scope
     from nsm.gateway import MAX_TOKENS, Gateway, scrub
     from nsm.gateway.pricing import cost_usd, estimate_tokens, price
@@ -214,7 +217,7 @@ def main() -> int:
         if thinking_off and c["effort"] is None:
             return 0
         if c["effort"] is None:
-            return room  # model default (Haiku 5.5 medium, Sonnet 5.5 high): bounded only by max_tokens
+            return room  # model default effort: bounded only by max_tokens
         ratio = {"minimal": 0.1, "low": 0.2, "medium": 0.5, "high": 0.8}.get(c["effort"], 0.8)
         return min(room, max(int(c["max_tokens"] * ratio), THINKING_FLOOR))
 
@@ -230,7 +233,7 @@ def main() -> int:
                      "usd": visible, "usd_warm_cache": warm, "usd_thinking_max": think * po / 1e6 * fee,
                      # thinking off, but the provider refuses it for this model: lowest effort, reserve allowed
                      "usd_thinking_fallback": (THINKING_FLOOR * po / 1e6 * fee
-                                               if thinking_off and "sonnet" in c["model"] else 0.0)})
+                                               if thinking_off and c["task"] in LARGE_TASKS else 0.0)})
 
     def agg(task: str) -> dict:
         rs = [r for r in rows if r["task"] == task]
@@ -311,7 +314,7 @@ def render(allres: dict) -> str:
 
         def fb(x: dict) -> str:
             v = x.get("usd_thinking_fallback", 0.0)
-            return f" If OpenRouter refuses thinking-off for Sonnet 5.5: up to {_usd(v)} more." if v else ""
+            return f" If the large model refuses thinking-off: up to {_usd(v)} more." if v else ""
         out += ["", f"- **Per CV** (extract + escalation at {cv['escalation_rate']:.0%}): {_usd(cv['usd'])}; "
                     f"{_usd(cv['usd_warm_cache'])} with a warm cache; up to {_usd(cv['usd_thinking_max'])} more "
                     "in hidden thinking." + fb(cv),

@@ -1,44 +1,49 @@
 """FastAPI application: /api/v1 (initial local build).
 
-Tenant: `X-Tenant-ID` header (default from settings). Authentication (OIDC) and Postgres
-RLS arrive with production readiness (ADR 0009); this build is for local use only and
-binds to 127.0.0.1 by default.
+Workspace (tenant): taken from the caller's API key or Entra ID token (NSM_AUTH_MODE, see nsm/security.py).
+Only in the local single-user mode (NSM_AUTH_MODE=none, the default) does the X-Tenant-ID header choose it.
+Every request is also rate-limited per workspace, and uploads and match runs have daily quotas.
 """
 
 from __future__ import annotations
 
 import io
 import logging
-import re
+import os
+import time
 import zipfile
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from fastapi import BackgroundTasks, Depends, FastAPI, File, Header, HTTPException, Query, UploadFile
+from fastapi import BackgroundTasks, Depends, FastAPI, File, HTTPException, Query, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
+from starlette.concurrency import run_in_threadpool
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
-from sqlalchemy import case, func, select
+from sqlalchemy import case, func, or_, select, text
 from sqlalchemy.orm import Session
 
 from nsm.config import PROJECT_ROOT, get_settings
-from nsm.db import audit, get_scoped, get_session, init_db
+from nsm.db import audit, get_engine, get_scoped, get_session, init_db
 from nsm.gateway import get_gateway
+from nsm.ingestion.ocr import engine_name as ocr_engine_name
+from nsm.ingestion.ocr import status as ocr_status
 from nsm.ingestion.pipeline import create_pending, erase_candidate, process_candidate
 from nsm.jobs.service import atoms_from_payload, confirm_job, create_job, update_atoms
 from nsm.matching import service as matching
-from nsm.models import AuditLog, Candidate, Feedback, Job, LlmCall, MatchResult, MatchRun, SkillClaim
+from nsm.models import (AuditLog, Candidate, Document, EvidenceUnit, Feedback, Job, LlmCall, MatchResult, MatchRun,
+                        SkillClaim)
+from nsm.security import PUBLIC_PATHS, AuthError, Principal, authenticate, limiter
 from nsm.taxonomy import LEVEL_RANK, get_taxonomy
 
 log = logging.getLogger("nsm.api")
-ALLOWED_EXT = {".pdf", ".docx", ".txt", ".md"}
+ALLOWED_EXT = {".pdf", ".docx", ".txt", ".md", ".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp", ".webp"}
 MAX_FILE_BYTES = 10 * 1024 * 1024
 MAX_ZIP_TOTAL = 60 * 1024 * 1024
 MAX_ZIP_FILES = 500
-_TENANT = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):  # noqa: ANN201
@@ -50,12 +55,90 @@ app = FastAPI(title="Neural-Semantic Matching (initial local build)", version="0
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
                    allow_methods=["*"], allow_headers=["*"])
 
+_UNSAFE = {"POST", "PUT", "PATCH", "DELETE"}
 
-def tenant(x_tenant_id: str | None = Header(default=None)) -> str:
-    t = x_tenant_id or get_settings().default_tenant
-    if not _TENANT.match(t):
-        raise HTTPException(400, "invalid X-Tenant-ID")
-    return t
+
+def _csv(v: str) -> set[str]:
+    return {x.strip().lower() for x in v.split(",") if x.strip()}
+
+
+def _too_many(wait: float, what: str) -> JSONResponse:
+    return JSONResponse({"detail": f"too many requests ({what}); try again shortly"}, status_code=429,
+                        headers={"Retry-After": str(max(1, int(wait + 0.999)))})
+
+
+@app.middleware("http")
+async def auth_and_limits(request, call_next):  # noqa: ANN001, ANN201
+    """Runs after the host/origin guard. Resolves the workspace from the credential, then rate-limits it."""
+    path = request.url.path
+    if not path.startswith("/api/") or path in PUBLIC_PATHS or request.method == "OPTIONS":
+        return await call_next(request)
+    cfg = get_settings()
+    ip = request.client.host if request.client else "unknown"
+    try:
+        principal: Principal = await run_in_threadpool(authenticate, request.headers)
+    except AuthError as e:
+        if e.status == 401:  # slow down key / token guessing from one address
+            wait = limiter.hit("auth-fail", ip, 20)
+            if wait:
+                return _too_many(wait, "failed sign-ins")
+        return JSONResponse({"detail": e.detail}, status_code=e.status,
+                            headers={"WWW-Authenticate": "Bearer"} if e.status == 401 else None)
+    request.state.principal = principal
+    wait = limiter.hit("all", principal.tenant, cfg.rate_limit_per_minute)
+    if not wait and request.method in _UNSAFE:
+        wait = limiter.hit("write", principal.tenant, cfg.write_rate_limit_per_minute)
+    if wait:
+        return _too_many(wait, "rate limit")
+    return await call_next(request)
+
+
+@app.middleware("http")
+async def local_only_guard(request, call_next):  # noqa: ANN001, ANN201
+    """No login in this build, so refuse what a hostile web page could do through the browser.
+
+    1. Host header must be an allowed name (stops DNS rebinding reading your CVs).
+    2. A write from a browser must come from this app's own origin or an allowed dev origin
+       (stops cross-site form posts that upload CVs or change data). Requests with no Origin
+       header (curl, scripts, tests) are not browsers and pass.
+    """
+    cfg = get_settings()
+    host = (request.headers.get("host") or "").lower()
+    hostname = host.rsplit(":", 1)[0] if not host.startswith("[") else host.split("]")[0] + "]"
+    if hostname not in _csv(cfg.allowed_hosts):
+        return JSONResponse({"detail": "host not allowed"}, status_code=403)
+    if request.method in _UNSAFE:
+        origin = (request.headers.get("origin") or "").lower()
+        fetch_site = (request.headers.get("sec-fetch-site") or "").lower()
+        same_origin = origin in (f"http://{host}", f"https://{host}")
+        if origin and not same_origin and origin not in _csv(cfg.allowed_origins):
+            return JSONResponse({"detail": "cross-site request refused"}, status_code=403)
+        if not origin and fetch_site == "cross-site":
+            return JSONResponse({"detail": "cross-site request refused"}, status_code=403)
+    return await call_next(request)
+
+
+def tenant(request: Request) -> str:
+    """The workspace resolved by `auth_and_limits` from the caller's credential (never trusted from a header
+    except in the local single-user mode)."""
+    p = getattr(request.state, "principal", None)
+    if p is None:
+        raise HTTPException(401, "not signed in")
+    return p.tenant
+
+
+def _start_of_day() -> datetime:
+    return datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+
+
+def _check_quota(s: Session, model: Any, t: str, adding: int, quota: int, what: str) -> None:
+    if quota <= 0:
+        return
+    used = s.scalar(select(func.count()).select_from(model)
+                    .where(model.tenant_id == t, model.created_at >= _start_of_day())) or 0
+    if used + adding > quota:
+        raise HTTPException(429, f"daily {what} quota reached ({used} of {quota} used today, UTC)",
+                            headers={"Retry-After": "3600"})
 
 
 def _404(what: str) -> HTTPException:
@@ -70,7 +153,62 @@ def _404(what: str) -> HTTPException:
 def health() -> dict:
     gw = get_gateway()
     return {"status": "ok", "llm_enabled": gw.llm_enabled, "embedding_model": gw.embedding_model,
-            "rerank": gw.rerank_enabled}
+            "rerank": gw.rerank_enabled, "auth_mode": get_settings().auth_mode.lower()}
+
+
+def _check(fn) -> dict:  # noqa: ANN001
+    t0 = time.perf_counter()
+    try:
+        out = fn() or {}
+        ok = out.pop("ok", True)
+    except Exception as e:  # noqa: BLE001
+        log.warning("readiness check failed: %s", e)
+        ok, out = False, {"error": e.__class__.__name__}
+    return {"ok": bool(ok), "ms": round((time.perf_counter() - t0) * 1000, 1), **out}
+
+
+def _ready_db() -> dict:
+    with get_engine().connect() as c:
+        c.execute(text("SELECT 1"))
+        c.execute(text("SELECT count(*) FROM evidence_fts WHERE 1 = 0"))
+        c.execute(select(func.count()).select_from(Candidate).where(Candidate.id == ""))
+    return {"engine": get_engine().dialect.name}
+
+
+def _ready_storage() -> dict:
+    d = get_settings().uploads_dir
+    d.mkdir(parents=True, exist_ok=True)
+    probe = d / f".ready-{os.getpid()}"
+    probe.write_bytes(b"ok")
+    good = probe.read_bytes() == b"ok"
+    probe.unlink()
+    return {"ok": good}
+
+
+def _ready_auth() -> dict:
+    cfg = get_settings()
+    mode = cfg.auth_mode.lower()
+    ok = {"none": True, "api_key": bool(cfg.api_keys.strip()),
+          "entra": bool(cfg.oidc_issuer and cfg.oidc_audience)}.get(mode, False)
+    return {"ok": ok, "mode": mode}
+
+
+def _ready_models() -> dict:
+    cfg = get_settings()
+    if cfg.llm_mode != "openrouter":
+        return {"mode": "offline"}
+    return {"ok": cfg.llm_enabled, "mode": "openrouter", "missing": cfg.missing_models}
+
+
+@app.get("/api/v1/ready")
+def ready() -> JSONResponse:
+    """Readiness: can this instance actually serve traffic? 200 when every check passes, else 503.
+    Public (no credential) so a load balancer or Azure health check can call it; it reveals no data."""
+    checks = {"database": _check(_ready_db), "storage": _check(_ready_storage), "ocr": _check(ocr_status),
+              "auth": _check(_ready_auth), "models": _check(_ready_models),
+              "jobs": {"ok": True, "runner": "in-process background tasks"}}
+    ok = all(c["ok"] for c in checks.values())
+    return JSONResponse({"status": "ready" if ok else "not_ready", "checks": checks}, status_code=200 if ok else 503)
 
 
 @app.get("/api/v1/config")
@@ -79,13 +217,16 @@ def config() -> dict:
     gw = get_gateway()
     return {"llm_mode": s.llm_mode, "llm_enabled": gw.llm_enabled, "api_key_configured": bool(s.openrouter_api_key),
             "embedding_model": gw.embedding_model, "rerank_enabled": gw.rerank_enabled,
-            "models": {t: gw.model_for(t) for t in ("extract", "escalate", "jd", "verify", "deep")},
+            "models": {t: s.model_for_task(t) or "not set" for t in ("extract", "escalate", "jd", "verify", "deep")},
+            "missing_models": s.missing_models,
             "caps": {"per_run_usd": s.cap_per_run_usd, "per_cv_usd": s.cap_per_cv_usd,
                      "per_cv_hard_usd": s.cap_per_cv_hard_usd, "monthly_usd": s.cap_monthly_usd,
                      "alert_fraction": s.alert_fraction},
             "funnel": {"stage1_top_k": s.stage1_top_k, "stage2_top_k": s.stage2_top_k,
                        "deep_eval_eager_k": s.deep_eval_eager_k, "deep_eval_lazy_k": s.deep_eval_lazy_k},
-            "storage": {"database": "sqlite (local file)", "data_dir": str(s.data_dir)}}
+            "storage": {"database": "sqlite (local file)" if s.is_sqlite else "postgresql",
+                        "data_dir": str(s.data_dir)},
+            "auth_mode": s.auth_mode, "ocr_engine": ocr_engine_name()}
 
 
 @app.get("/api/v1/taxonomy")
@@ -132,7 +273,7 @@ def _expand_upload(name: str, data: bytes) -> list[tuple[str, bytes]]:
                 out.append((Path(info.filename).name, z.read(info)))
         return out
     if ext not in ALLOWED_EXT:
-        raise HTTPException(415, f"unsupported file type {ext}; use PDF, DOCX, TXT, MD or ZIP")
+        raise HTTPException(415, f"unsupported file type {ext}; use PDF, DOCX, TXT, MD, an image (PNG, JPG, TIFF) or ZIP")
     return [(name, data)]
 
 
@@ -140,16 +281,20 @@ def _expand_upload(name: str, data: bytes) -> list[tuple[str, bytes]]:
 async def upload(background: BackgroundTasks, files: list[UploadFile] = File(...), t: str = Depends(tenant),
                  s: Session = Depends(get_session)) -> dict:
     created = []
+    batch: list[tuple[str, bytes]] = []
     for f in files:
         data = await f.read()
         if len(data) > MAX_ZIP_TOTAL:
             raise HTTPException(413, "file too large")
-        for name, content in _expand_upload(f.filename or "upload", data):
-            if len(content) > MAX_FILE_BYTES:
-                created.append({"filename": name, "status": "rejected", "error": "file larger than 10 MB"})
-                continue
-            cand = create_pending(s, t, name, content)
-            created.append({"id": cand.id, "filename": name, "status": cand.status})
+        batch.extend(_expand_upload(f.filename or "upload", data))
+    _check_quota(s, Candidate, t, sum(1 for _, c in batch if len(c) <= MAX_FILE_BYTES),
+                 get_settings().daily_upload_quota, "upload")
+    for name, content in batch:
+        if len(content) > MAX_FILE_BYTES:
+            created.append({"filename": name, "status": "rejected", "error": "file larger than 10 MB"})
+            continue
+        cand = create_pending(s, t, name, content)
+        created.append({"id": cand.id, "filename": name, "status": cand.status})
     s.commit()
     for c in created:
         if "id" in c:
@@ -173,8 +318,21 @@ def list_candidates(status: str | None = None, q: str | None = None, limit: int 
     stmt = select(Candidate).where(Candidate.tenant_id == t)
     if status:
         stmt = stmt.where(Candidate.status == status)
-    if q:
-        stmt = stmt.where(Candidate.headline.ilike(f"%{q}%"))
+    if q and q.strip():
+        # Every word must appear somewhere in the headline, location, file name, evidence text or skills.
+        # Names are deliberately not searchable, so blind review still holds.
+        for word in q.split()[:8]:
+            like = f"%{word}%"
+            stmt = stmt.where(or_(
+                Candidate.headline.ilike(like),
+                Candidate.location.ilike(like),
+                select(Document.id).where(Document.candidate_id == Candidate.id,
+                                          Document.filename.ilike(like)).exists(),
+                select(EvidenceUnit.id).where(EvidenceUnit.candidate_id == Candidate.id,
+                                              EvidenceUnit.text.ilike(like)).exists(),
+                select(SkillClaim.id).where(SkillClaim.candidate_id == Candidate.id,
+                                            SkillClaim.skill_id.ilike(like.replace(" ", "_"))).exists(),
+            ))
     total = s.scalar(select(func.count()).select_from(stmt.subquery())) or 0
     rows = s.scalars(stmt.order_by(Candidate.created_at.desc()).limit(limit).offset(offset)).all()
     return {"total": total, "items": [_cand_row(c) for c in rows]}
@@ -339,6 +497,7 @@ class MatchIn(BaseModel):
 def post_match(jid: str, body: MatchIn, background: BackgroundTasks, t: str = Depends(tenant),
                s: Session = Depends(get_session)) -> dict:
     j = _job(s, t, jid)
+    _check_quota(s, MatchRun, t, 1, get_settings().daily_match_run_quota, "match run")
     try:
         run = matching.start_run(s, t, j, verify=body.verify, filters=body.filters)
     except ValueError as e:

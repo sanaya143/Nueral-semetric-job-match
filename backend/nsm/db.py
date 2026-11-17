@@ -1,7 +1,11 @@
-"""Local storage: SQLite database (+ FTS5 for BM25) and tenant-scoped helpers.
+"""Storage: SQLite (local, + FTS5 for BM25) or PostgreSQL (Azure, + built-in full-text search), and
+tenant-scoped helpers.
 
-Tenant isolation: SQLite has no Row-Level Security, so every read goes through
-`scoped(session, Model, tenant_id)`. The PostgreSQL migration (ADR 0009) adds RLS on top.
+The database is chosen by NSM_DATABASE_URL: empty means a local SQLite file; a postgresql+psycopg:// URL
+means PostgreSQL (for example Azure Database for PostgreSQL Flexible Server, with sslmode=require).
+
+Tenant isolation: every read goes through `scoped(session, Model, tenant_id)`, and the tenant itself now
+comes from the caller's key or login token (nsm/security.py), never from a header the caller picks.
 """
 
 from __future__ import annotations
@@ -29,14 +33,19 @@ def get_engine() -> Engine:
         settings = get_settings()
         settings.data_dir.mkdir(parents=True, exist_ok=True)
         settings.uploads_dir.mkdir(parents=True, exist_ok=True)
-        _engine = create_engine(settings.db_url, connect_args={"check_same_thread": False, "timeout": 30})
+        if settings.is_sqlite:
+            _engine = create_engine(settings.db_url, connect_args={"check_same_thread": False, "timeout": 30})
 
-        @event.listens_for(_engine, "connect")
-        def _sqlite_pragmas(dbapi_conn, _record):  # noqa: ANN001
-            cur = dbapi_conn.cursor()
-            cur.execute("PRAGMA foreign_keys=ON")
-            cur.execute("PRAGMA journal_mode=WAL")
-            cur.close()
+            @event.listens_for(_engine, "connect")
+            def _sqlite_pragmas(dbapi_conn, _record):  # noqa: ANN001
+                cur = dbapi_conn.cursor()
+                cur.execute("PRAGMA foreign_keys=ON")
+                cur.execute("PRAGMA journal_mode=WAL")
+                cur.close()
+        else:
+            # pre_ping drops connections the server closed (Azure closes idle ones); recycle keeps them fresh.
+            _engine = create_engine(settings.db_url, pool_pre_ping=True, pool_size=settings.db_pool_size,
+                                    max_overflow=settings.db_pool_size, pool_recycle=1800)
 
         _SessionLocal = sessionmaker(bind=_engine, expire_on_commit=False)
     return _engine
@@ -51,8 +60,29 @@ def reset_engine() -> None:
     _SessionLocal = None
 
 
+def is_postgres() -> bool:
+    return get_engine().dialect.name == "postgresql"
+
+
+_PG_FTS = [
+    "CREATE TABLE IF NOT EXISTS evidence_fts ("
+    " unit_id VARCHAR(32) PRIMARY KEY, tenant_id VARCHAR(64) NOT NULL, candidate_id VARCHAR(32) NOT NULL,"
+    " text TEXT NOT NULL, tsv tsvector GENERATED ALWAYS AS (to_tsvector('english', text)) STORED)",
+    "CREATE INDEX IF NOT EXISTS ix_evidence_fts_tsv ON evidence_fts USING GIN (tsv)",
+    "CREATE INDEX IF NOT EXISTS ix_evidence_fts_tenant_cand ON evidence_fts (tenant_id, candidate_id)",
+]
+
+
 def init_db() -> None:
     engine = get_engine()
+    if engine.dialect.name == "postgresql":
+        with engine.begin() as conn:
+            # Several workers may start at once: serialise schema creation with an advisory lock.
+            conn.execute(text("SELECT pg_advisory_xact_lock(74210101)"))
+            Base.metadata.create_all(conn)
+            for stmt in _PG_FTS:
+                conn.execute(text(stmt))
+        return
     Base.metadata.create_all(engine)
     with engine.begin() as conn:
         conn.execute(
@@ -100,7 +130,7 @@ def audit(session: Session, tenant_id: str, action: str, entity: str, entity_id:
 
 
 # ---------------------------------------------------------------------------------------
-# FTS5 (BM25) index over evidence units
+# Full-text index over evidence units: FTS5 BM25 on SQLite, tsvector + ts_rank_cd on PostgreSQL
 # ---------------------------------------------------------------------------------------
 
 def fts_index_units(session: Session, rows: list[tuple[str, str, str, str]]) -> None:
@@ -135,10 +165,21 @@ def fts_query_from_text(query: str, max_terms: int = 24) -> str:
 
 
 def fts_search(session: Session, tenant_id: str, query: str, limit: int = 200) -> list[tuple[str, str, float]]:
-    """Returns [(unit_id, candidate_id, bm25_score)] where higher is better."""
+    """Returns [(unit_id, candidate_id, score)] where higher is better. Only the order is used (RRF)."""
     q = fts_query_from_text(query)
     if not q:
         return []
+    if session.get_bind().dialect.name == "postgresql":
+        # websearch_to_tsquery never raises on odd input (c++, node.js); "or" joins the terms.
+        rows = session.execute(
+            text(
+                "SELECT unit_id, candidate_id, ts_rank_cd(tsv, q) AS s "
+                "FROM evidence_fts, websearch_to_tsquery('english', :q) AS q "
+                "WHERE tsv @@ q AND tenant_id = :t ORDER BY s DESC, unit_id LIMIT :n"
+            ),
+            {"q": q.replace(" OR ", " or "), "t": tenant_id, "n": limit},
+        ).all()
+        return [(r[0], r[1], float(r[2])) for r in rows]
     rows = session.execute(
         text(
             "SELECT unit_id, candidate_id, bm25(evidence_fts) AS s FROM evidence_fts "

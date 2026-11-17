@@ -1,4 +1,6 @@
-// Thin API client for the local FastAPI backend (/api/v1). Tenant comes from the header selector.
+// Thin API client for the FastAPI backend (/api/v1).
+// Local mode (NSM_AUTH_MODE=none): the workspace selector sends X-Tenant-ID.
+// API-key mode: the workspace key is sent as a bearer token and the server decides the workspace.
 
 export type Level =
   | "demonstrated" | "applied" | "inferred" | "listed_only" | "missing"
@@ -49,6 +51,18 @@ export interface Job {
 
 const TENANT_KEY = "nsm.tenant";
 const BLIND_KEY = "nsm.blind";
+const APIKEY_KEY = "nsm.apikey";
+
+// The key is kept for this browser tab only (sessionStorage), never in localStorage.
+function session(key: string, value?: string | null): string | null {
+  try {
+    if (value === null) sessionStorage.removeItem(key);
+    else if (value !== undefined) sessionStorage.setItem(key, value);
+    return sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
 
 function store(key: string, value?: string): string | null {
   try {
@@ -64,14 +78,23 @@ export const prefs = {
   setTenant: (t: string) => store(TENANT_KEY, t),
   blind: () => store(BLIND_KEY) !== "false",
   setBlind: (b: boolean) => store(BLIND_KEY, String(b)),
+  apiKey: () => session(APIKEY_KEY),
+  setApiKey: (k: string | null) => session(APIKEY_KEY, k),
 };
+
+export function authHeaders(): Record<string, string> {
+  const key = prefs.apiKey();
+  return key ? { Authorization: `Bearer ${key}` } : { "X-Tenant-ID": prefs.tenant() };
+}
+
+export const AUTH_EVENT = "nsm:auth-required";
 
 export class ApiError extends Error {
   constructor(public status: number, message: string) { super(message); }
 }
 
 export async function api<T = any>(method: string, path: string, body?: unknown): Promise<T> {
-  const headers: Record<string, string> = { "X-Tenant-ID": prefs.tenant() };
+  const headers: Record<string, string> = authHeaders();
   let payload: BodyInit | undefined;
   if (body instanceof FormData) payload = body;
   else if (body !== undefined) {
@@ -85,6 +108,8 @@ export async function api<T = any>(method: string, path: string, body?: unknown)
       const j = await r.json();
       msg = typeof j.detail === "string" ? j.detail : JSON.stringify(j.detail);
     } catch { /* not JSON */ }
+    if (r.status === 401) window.dispatchEvent(new Event(AUTH_EVENT));
+    if (r.status === 429) msg = `Slow down: ${msg}`;
     throw new ApiError(r.status, msg);
   }
   return r.json() as Promise<T>;
