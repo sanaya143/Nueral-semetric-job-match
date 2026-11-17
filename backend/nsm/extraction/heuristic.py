@@ -292,8 +292,13 @@ def _level_for_sentence(sentence: str, unit_kind: str) -> tuple[str, float]:
     return "applied", 0.6
 
 
-def extract_claims(units: list[UnitDraft], taxonomy: Taxonomy) -> list[ClaimDraft]:
+MAX_SKILLS_DEMONSTRATED_PER_SENTENCE = 5
+
+
+def extract_claims(units: list[UnitDraft], taxonomy: Taxonomy,
+                   dense_sentences: set[str] | None = None) -> list[ClaimDraft]:
     best: dict[tuple[str, str], ClaimDraft] = {}
+    dense_sentences = dense_sentences if dense_sentences is not None else set()
 
     def keep(c: ClaimDraft) -> None:
         k = (c.unit_key, c.skill_id)
@@ -312,6 +317,12 @@ def extract_claims(units: list[UnitDraft], taxonomy: Taxonomy) -> list[ClaimDraf
             if not matches:
                 continue
             level, conf = _level_for_sentence(sentence, u.kind)
+            # A sentence that names many skills is a tech list in disguise ("Built X using A, B, C, D, E, F...").
+            # One action verb cannot demonstrate all of them, so they count as applied at most.
+            distinct = {m.skill_id for m in matches if taxonomy.skills[m.skill_id].category != "education"}
+            if level == "demonstrated" and len(distinct) > MAX_SKILLS_DEMONSTRATED_PER_SENTENCE:
+                level, conf = "applied", 0.55
+                dense_sentences.add(sentence.strip())
             quote = re.sub(r"^[-*•]\s+", "", sentence.strip())
             for m in matches:
                 skill = taxonomy.skills[m.skill_id]
@@ -351,7 +362,10 @@ def _header_logistics_city(text: str) -> re.Match | None:
 def extract(text: str, taxonomy: Taxonomy | None = None) -> ExtractionResult:
     tax = taxonomy or get_taxonomy()
     units, headline, flags = segment(text)
-    claims = extract_claims(units, tax)
+    dense: set[str] = set()
+    claims = extract_claims(units, tax, dense)
+    if dense:
+        flags.append("skill_dense_sentences")
 
     exp_units = [u for u in units if u.kind == "experience" and u.start_year]
     total_years = _merge_years([(u.start_year, u.end_year or _now_year()) for u in exp_units])  # type: ignore[misc]

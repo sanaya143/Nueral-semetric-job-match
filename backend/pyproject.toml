@@ -1,7 +1,7 @@
 [project]
 name = "nsm"
-version = "0.1.0"
-description = "Neural-Semantic Matching Protocol: initial local build (SQLite + local files, offline or OpenRouter mode)"
+version = "1.2.0"
+description = "Neural-Semantic Matching Protocol: SQLite locally or PostgreSQL on Azure; offline or OpenRouter mode"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.115",
@@ -15,6 +15,9 @@ dependencies = [
     "python-docx>=1.1",
     "python-multipart>=0.0.9",
     "langgraph>=0.2",
+    "rapidocr-onnxruntime>=1.4.4",  # local OCR for scanned PDFs and image CVs (models bundled, CPU, offline)
+    "psycopg[binary]>=3.2",         # PostgreSQL driver (Azure Database for PostgreSQL)
+    "pyjwt[crypto]>=2.9",           # Entra ID / OIDC token checks
 ]
 
 [dependency-groups]

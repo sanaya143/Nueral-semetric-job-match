@@ -28,8 +28,8 @@ def test_offline_mode_never_calls_a_model():
 
 
 def test_prices_and_batch_discount():
-    assert cost_usd("anthropic/claude-haiku-5.5", 1_000_000, 0) == pytest.approx(0.10)
-    assert cost_usd("anthropic/claude-haiku-5.5:batch", 1_000_000, 1_000_000) == pytest.approx(0.30)
+    assert cost_usd("test/small-model", 1_000_000, 0) == pytest.approx(0.10)
+    assert cost_usd("test/small-model:batch", 1_000_000, 1_000_000) == pytest.approx(0.30)
     assert cost_usd("unknown/model", 1_000_000, 0) == pytest.approx(5.0)  # conservative for unknown models
 
 
@@ -39,7 +39,7 @@ def test_cost_meter_records_every_call_with_fee(llm_gateway):
         gw.chat_json(s, tenant_id="t-meter", task="verify", system="sys", user="u", schema=SCHEMA,
                      schema_name="x", run_id="run-meter")
         row = s.scalars(select(LlmCall).where(LlmCall.run_id == "run-meter")).one()
-        expected = cost_usd("anthropic/claude-haiku-5.5", 10_000, 1_000) * 1.055
+        expected = cost_usd("test/small-model", 10_000, 1_000) * 1.055
         assert row.cost_usd == pytest.approx(expected) and row.input_tokens == 10_000 and row.ok
 
 
@@ -81,7 +81,7 @@ def test_openrouter_body_switches_reasoning_off(monkeypatch):
         sent.update(body)
         return {"choices": [{"message": {"content": "{}"}}], "usage": {}}, 1
     monkeypatch.setattr(OpenRouterClient, "_post", fake_post)
-    OpenRouterClient("k", "http://x").chat_json("anthropic/claude-haiku-5.5", "s", "u", SCHEMA, "x", 100, None)
+    OpenRouterClient("k", "http://x").chat_json("test/small-model", "s", "u", SCHEMA, "x", 100, None)
     assert sent["reasoning"] == {"enabled": False}
 
 
@@ -146,7 +146,7 @@ def test_extraction_escalates_only_the_units_that_failed(llm_gateway):
     with session_scope() as s:
         res = extract_with_llm(s, gw, redact(sanitize(CV_B).text).text, tenant_id="t-esc")
     first, second = gw._client.calls
-    assert [first["model"], second["model"]] == ["anthropic/claude-haiku-5.5", "anthropic/claude-sonnet-5.5"]
+    assert [first["model"], second["model"]] == ["test/small-model", "test/large-model"]
     assert res.mode == "llm_escalated"
     assert '<unit id="u0"' in second["user"] and '<unit id="u1"' not in second["user"]  # only the failed unit
     assert '<unit id="u1"' in first["user"]
@@ -164,7 +164,7 @@ def test_escalation_fits_under_the_per_cv_hard_cap(llm_gateway):
     gw = llm_gateway([_MOSTLY_BAD, {"evidence": [], "unmapped_terms": []}], input_tokens=1500, output_tokens=1500)
     with session_scope() as s:
         res = extract_with_llm(s, gw, redact(sanitize(CV_B).text).text, tenant_id="t-cap", candidate_id="cand-cap-1")
-    assert [c["model"] for c in gw._client.calls] == ["anthropic/claude-haiku-5.5", "anthropic/claude-sonnet-5.5"]
+    assert [c["model"] for c in gw._client.calls] == ["test/small-model", "test/large-model"]
     assert res.mode == "llm_escalated"
 
 
@@ -172,7 +172,7 @@ def test_blocked_escalation_keeps_small_model_claims_and_labels_them(llm_gateway
     gw = llm_gateway([_MOSTLY_BAD], input_tokens=1500, output_tokens=1500, cap_per_cv_hard_usd=0.005)
     with session_scope() as s:
         res = extract_with_llm(s, gw, redact(sanitize(CV_B).text).text, tenant_id="t-cap", candidate_id="cand-cap-2")
-    assert [c["model"] for c in gw._client.calls] == ["anthropic/claude-haiku-5.5"]   # Sonnet blocked before the call
+    assert [c["model"] for c in gw._client.calls] == ["test/small-model"]   # large model blocked before the call
     assert res.mode == "llm"
     assert any(f.startswith("llm_escalation_unavailable:per-CV hard cap") for f in res.flags)
     assert any(c.skill_id == "llm_app_dev" and c.via == "llm" for c in res.claims)

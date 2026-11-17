@@ -13,7 +13,7 @@ from __future__ import annotations
 
 from datetime import date
 
-from nsm.scoring.types import STATUS_SCORE, CandidateView, JobSpec
+from nsm.scoring.types import LEVEL_SCORE, STATUS_SCORE, CandidateView, JobSpec
 
 WEIGHTS = {"technical": 0.30, "practical": 0.25, "domain": 0.15, "nice": 0.10, "seniority": 0.10,
            "logistics": 0.10, "education": 0.0}
@@ -27,7 +27,13 @@ FLAG_TEXT = {
     "senior_title_low_tenure": "Senior title with short total tenure; verify scope",
     "overlapping_roles": "Overlapping role dates; verify timeline",
     "unstructured_cv": "CV has no recognisable sections; extraction confidence is lower",
+    "skill_dense_sentences": "Single sentences name many skills at once; counted as applied, not demonstrated",
+    "ocr_used": "Text was read by OCR from a scanned file; check key quotes against the original",
 }
+
+# If this many requirements are all "demonstrated" by the same one quote, that quote is doing too much
+# work: each of them is scored as applied instead, and confidence drops.
+SHARED_QUOTE_LIMIT = 3
 
 
 def _working_years_since(cv: CandidateView, unit) -> float | None:  # noqa: ANN001
@@ -68,10 +74,26 @@ def score_candidate(job: JobSpec, cv: CandidateView, verdicts: list[dict]) -> di
     practical: list[tuple[float, float]] = []
     gate_failures: list[str] = []
 
+    quote_use: dict[str, int] = {}
+    for v in verdicts:
+        if v["dimension"] not in ("logistics", "experience") and v["level"] == "demonstrated" and v.get("evidence"):
+            q = v["evidence"][0].get("quote", "").strip()
+            if q:
+                quote_use[q] = quote_use.get(q, 0) + 1
+    overused = {q for q, n in quote_use.items() if n > SHARED_QUOTE_LIMIT}
+
+    def _level(v: dict) -> str:
+        if v["level"] == "demonstrated" and v.get("evidence") and v["dimension"] not in ("logistics", "experience") \
+                and v["evidence"][0].get("quote", "").strip() in overused:
+            return "applied"
+        return v["level"]
+
     for v in verdicts:
         a = atoms[v["atom_id"]]
         w = a.weight * KIND_WEIGHT.get(a.kind, 1.0)
         status = v["status"]
+        level = _level(v)
+        vscore = LEVEL_SCORE["applied"] if level != v["level"] else v["score"]
         if a.kind == "must":
             if a.dimension in ("technical", "domain", "education") and status != "met":
                 gate_failures.append(a.text)
@@ -84,19 +106,19 @@ def score_candidate(job: JobSpec, cv: CandidateView, verdicts: list[dict]) -> di
             dims["seniority"].append((v["score"], w))
             continue
         if a.kind == "nice":
-            dims["nice"].append((v["score"], w))
+            dims["nice"].append((vscore, w))
             continue
         dim = a.dimension if a.dimension in ("domain", "education") else "technical"
-        dims[dim].append((v["score"], w))
+        dims[dim].append((vscore, w))
         if dim == "technical":  # practical depth/recency of the evidence for technical requirements
             p = 0.0
             ev = v["evidence"][0] if v.get("evidence") else None
             unit = cv.units.get(ev["unit_id"]) if ev else None
-            if v["level"] == "demonstrated" and unit is not None:
+            if level == "demonstrated" and unit is not None:
                 p = (1.0 if unit.kind == "experience" else 0.8) * _recency(cv, unit)
-            elif v["level"] == "applied" and unit is not None:
+            elif level == "applied" and unit is not None:
                 p = 0.5 * _recency(cv, unit)
-            elif v["level"] == "inferred":
+            elif level == "inferred":
                 p = 0.2
             practical.append((p, w))
     dims["practical"] = practical
@@ -124,6 +146,8 @@ def score_candidate(job: JobSpec, cv: CandidateView, verdicts: list[dict]) -> di
     confidence -= 0.03 * unknown
     if "unstructured_cv" in cv.flags:
         confidence -= 0.1
+    if overused or "skill_dense_sentences" in cv.flags:
+        confidence -= 0.25
     confidence = round(max(0.05, min(1.0, confidence)), 2)
     band = "high" if confidence >= 0.75 else "medium" if confidence >= 0.5 else "low"
 
@@ -144,6 +168,9 @@ def score_candidate(job: JobSpec, cv: CandidateView, verdicts: list[dict]) -> di
             concerns.append({"type": "unknown", "text": f"Not stated in CV: {v['atom_text']} ({v['note']})"})
         elif v["level"] == "inferred" and v["kind"] == "must":
             concerns.append({"type": "inferred", "text": f"Only inferred, verify in interview: {v['atom_text']}"})
+    if overused:
+        concerns.append({"type": "needs_verification",
+                         "text": "Several requirements rest on one sentence; ask for detail on each in interview"})
     for f in cv.flags:
         key = f.split(":")[0]
         if key in FLAG_TEXT:

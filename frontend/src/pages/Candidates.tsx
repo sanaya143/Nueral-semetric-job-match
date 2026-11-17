@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { api, prefs } from "../api";
 import { useApi } from "../hooks";
 import { Card, Empty, ErrorBox, Flags, Loading, fmtDate } from "../ui";
@@ -19,8 +19,17 @@ export function blindName(c: { id: string; display_name: string }): string {
 }
 
 export default function Candidates() {
-  const [status, setStatus] = useState("");
-  const [q, setQ] = useState("");
+  // Filters live in the URL so the dashboard cards can link straight to a filtered list.
+  const [sp, setSp] = useSearchParams();
+  const status = sp.get("status") ?? "";
+  const q = sp.get("q") ?? "";
+  const setParam = (k: string, v: string) => {
+    const next = new URLSearchParams(sp);
+    if (v) next.set(k, v); else next.delete(k);
+    setSp(next, { replace: true });
+  };
+  const setStatus = (v: string) => setParam("status", v);
+  const setQ = (v: string) => setParam("q", v);
   const [over, setOver] = useState(false);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
@@ -71,8 +80,8 @@ export default function Candidates() {
         onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && input.current?.click()}
       >
         <b>{busy ? "Uploading…" : "Drop CVs here or click to choose"}</b>
-        <div className="small muted">PDF, DOCX, TXT, MD, or a ZIP of them · up to 10 MB per file</div>
-        <input ref={input} type="file" multiple accept=".pdf,.docx,.txt,.md,.zip" hidden onChange={(e) => upload(e.target.files)} />
+        <div className="small muted">PDF (scanned is fine), DOCX, TXT, MD, PNG or JPG, or a ZIP of them · up to 10 MB per file</div>
+        <input ref={input} type="file" multiple accept=".pdf,.docx,.txt,.md,.png,.jpg,.jpeg,.tif,.tiff,.zip" hidden onChange={(e) => upload(e.target.files)} />
       </div>
       {msg && <div className="alert info">{msg}</div>}
       <ErrorBox error={err} />
@@ -81,7 +90,7 @@ export default function Candidates() {
         title={`Candidates${data ? ` (${data.total})` : ""}`}
         actions={
           <div className="row">
-            <input placeholder="Filter by headline" value={q} onChange={(e) => setQ(e.target.value)} style={{ width: 200 }} />
+            <input placeholder="Find by skill, title, location or file" value={q} onChange={(e) => setQ(e.target.value)} style={{ width: 260 }} />
             <select value={status} onChange={(e) => setStatus(e.target.value)} style={{ width: 140 }}>
               <option value="">All statuses</option>
               <option value="ready">Ready</option>
@@ -94,7 +103,7 @@ export default function Candidates() {
       >
         <ErrorBox error={error} />
         {loading && !data ? <Loading /> : !data || data.items.length === 0 ? (
-          <Empty>No candidates yet. Upload CVs above, or run <span className="mono">python scripts/seed_demo.py</span> for the synthetic demo set.</Empty>
+          (status || q.trim()) && data ? <Empty>No candidates match these filters.</Empty> : <Empty>No candidates yet. Upload CVs above, or run <span className="mono">python scripts/seed_demo.py</span> for the synthetic demo set.</Empty>
         ) : (
           <div className="table-wrap"><table>
             <thead><tr><th>Candidate</th><th>Headline</th><th>Years</th><th>Location / mode</th><th>Notice</th><th>Status</th><th>Flags</th><th>Added</th></tr></thead>

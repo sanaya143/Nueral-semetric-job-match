@@ -55,7 +55,7 @@ def _process(session: Session, cand: Candidate, gateway: Gateway, bulk: bool) ->
     red = redact(san.text)
     doc.evaluable_text = red.text
     doc.hidden_text_removed = bool(parsed.hidden_snippets)
-    flags = list(san.flags)
+    flags = list(san.flags) + (["ocr_used"] if parsed.ocr_pages else [])
 
     cand.content_hash = content_hash(red.text)
     dup = session.scalars(
@@ -69,7 +69,10 @@ def _process(session: Session, cand: Candidate, gateway: Gateway, bulk: bool) ->
     session.add(CandidateContact(candidate_id=cand.id, tenant_id=cand.tenant_id, full_name=red.full_name,
                                  email=red.email, phone=red.phone, redacted_fields=red.redacted_fields))
     if len(red.text.strip()) < 80:
-        cand.status, cand.error = "failed", "too little text (scanned PDF? OCR is not in the initial build)"
+        from nsm.ingestion.ocr import engine_name
+
+        cand.status, cand.error = "failed", ("too little readable text, even after OCR" if engine_name() != "off"
+                                             else "too little text (scanned file? OCR is off: see NSM_OCR_ENGINE)")
         cand.flags = flags
         return
 

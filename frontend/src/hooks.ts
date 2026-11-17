@@ -9,26 +9,35 @@ export function useApi<T>(path: string | null, opts: { poll?: number; until?: (d
   const timer = useRef<number | null>(null);
   const optsRef = useRef(opts);
   optsRef.current = opts;
+  // Only the newest request may update state. Without this, a slow response for an old
+  // filter (e.g. "all statuses") can land after the new one and overwrite the results.
+  const latest = useRef(0);
 
   const load = useCallback(async () => {
     if (!path) return;
+    const id = ++latest.current;
+    if (timer.current) window.clearTimeout(timer.current);
     setLoading(true);
     try {
       const d = await get<T>(path);
+      if (id !== latest.current) return;
       setData(d);
       setError(null);
       const { poll, until } = optsRef.current;
       if (poll && until && !until(d)) timer.current = window.setTimeout(load, poll);
     } catch (e) {
-      setError((e as Error).message);
+      if (id === latest.current) setError((e as Error).message);
     } finally {
-      setLoading(false);
+      if (id === latest.current) setLoading(false);
     }
   }, [path]);
 
   useEffect(() => {
     load();
-    return () => { if (timer.current) window.clearTimeout(timer.current); };
+    return () => {
+      latest.current++;
+      if (timer.current) window.clearTimeout(timer.current);
+    };
   }, [load]);
 
   return { data, error, loading, reload: load, setData };

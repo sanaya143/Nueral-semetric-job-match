@@ -185,12 +185,12 @@ export default function JobDetail() {
             </div>
             <div className="small muted">Filters only drop candidates whose CV states a conflicting value. Candidates who say nothing are kept.</div>
             {llm && (
-              <label className="check" title="Haiku 5.5 verifies the top 50 (≈$0.0007 each); Sonnet 5.5 deep-evaluates the top 5 (≈$0.018 each). Capped at $0.20 per run.">
+              <label className="check" title="Your small model verifies the top 50; your large model deep-evaluates the top 5. Capped at $0.20 per run.">
                 <input type="checkbox" checked={verify} onChange={(e) => setVerify(e.target.checked)} />
-                LLM verification + deep evaluation (≈ $0.06 per run, capped at $0.20)
+                LLM verification + deep evaluation (capped at $0.20 per run)
               </label>
             )}
-            {!llm && <div className="small muted">Offline mode: deterministic verdicts, $0. Add an OpenRouter key in <span className="mono">.env</span> to enable LLM verification.</div>}
+            {!llm && <div className="small muted">Offline mode: deterministic verdicts, $0. Add an OpenRouter key and choose models in <span className="mono">.env</span> to enable LLM verification.</div>}
             <div><button className="primary" disabled={!!busy} onClick={run}>{busy === "run" ? "Starting…" : "Run match"}</button></div>
           </div>
         )}
